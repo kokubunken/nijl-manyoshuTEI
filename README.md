@@ -4,14 +4,14 @@
 
 
 # プロジェクトメンバー
-菊池信彦（国文学研究資料館准教授）  
-乾善彦（関西大学文学部教授）  
-永崎研宣（人文情報学研究所/慶応義塾大学教授）  
-吉賀夏子（大阪大学准教授）
-茂野智大（筑波大学助教）
-青山英正（東京大学准教授）
-Malgorzata Citko-Duplantis（University of Tennessee, Knoxville）
-合同会社AMANE  
+* 菊池信彦（国文学研究資料館准教授）  
+* 乾善彦（関西大学文学部教授）  
+* 永崎研宣（人文情報学研究所/慶応義塾大学教授）  
+* 吉賀夏子（大阪大学准教授）
+* 茂野智大（筑波大学助教）
+* 青山英正（東京大学准教授）
+* Malgorzata Citko-Duplantis（University of Tennessee, Knoxville）
+* 合同会社AMANE  
 
 
 # 研究の意義と目的
