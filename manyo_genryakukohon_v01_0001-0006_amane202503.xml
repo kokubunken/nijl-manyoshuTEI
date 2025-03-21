@@ -1,0 +1,2232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>萬葉集manyo_genryakukohon_v01_0001-0006_amane202503</title>
+            <editor>合同会社AMANE</editor>
+            <funder>国文学研究資料館</funder>
+            <principal>菊池信彦</principal>
+            <respStmt>
+               <resp from="2024-03">TEI Encoding</resp>
+               <name>合同会社AMANE</name>
+            </respStmt>
+            <respStmt>
+               <resp from="2024-03">TEI Consulting</resp>
+               <name>Kiyonori Nagasaki</name>
+               <name>国文学研究資料館</name>
+            </respStmt>
+            <respStmt>
+               <resp from="2020-09" to="2025-03">廣瀬本万葉集監修</resp>
+               <name xml:id="監修001">乾善彦（関西大学）</name>
+               <name xml:id="監修002">茂野智大（筑波大学）</name>
+               <name xml:id="監修003">青山英正（東京大学）</name>
+               <name xml:id="監修004"
+                  >Dr. Malgorzata (Gosia)  Citko-Duplantis（University of Tennessee, Knoxville）</name>
+               <name from="2020-03" to="2020-09">KU-ORCASユニット４「古典籍資料の情報資源化」</name>
+               <name from="2023-01" to="2025-03">国文学研究資料館</name>
+            </respStmt>
+            <respStmt>
+               <resp>国歌大観番号1〜6のテキストデータ・TEIデータ化事業の推進</resp>
+               <name from="2023-04" to="2024-03">国文学研究資料館</name>
+            </respStmt>
+            <respStmt>
+               <resp>国歌大観番号7〜28のテキストデータ・TEIデータ化事業の推進</resp>
+               <name from="2024-04" to="2025-03">国文学研究資料館</name>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>国文学研究資料館</publisher>
+            <authority>国文学研究資料館</authority>
+            <availability>
+               <licence target="https://creativecommons.org/publicdomain/mark/1.0/">
+                  クリエイティブ・コモンズ・ライセンス0（CC0）</licence>
+               <licence target="https://www.tnm.jp/modules/r_free_page/index.php?id=1841">
+                  e国宝：デジタルコンテンツの利用について</licence>
+               <licence target="https://colbase.nich.go.jp/pages/term?locale=ja"
+                  >Colbase：利用規約</licence>
+            </availability>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <institution>
+                     <orgName>東京国立博物館</orgName>
+                     <settlement>東京都台東区上野公園</settlement>
+                  </institution>
+                  <collection facs="https://emuseum.nich.go.jp/top?langId=ja&amp;webView=0"
+                     >e国宝</collection>
+                  <collection facs="https://colbase.nich.go.jp/?locale=ja">Colbase</collection>
+                  <idno>B-2530</idno>
+                  <idno type="URI">
+                     https://emuseum.nich.go.jp/detail?content_base_id=100167&amp;content_part_id=001&amp;langId=ja&amp;webView=</idno>
+                  <idno type="URI"
+                     >https://colbase.nich.go.jp/collection_items/tnm/B-2530?locale=ja</idno>
+                  <msName>元暦校本万葉集</msName>
+               </msIdentifier>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <p><seg type="annotation">diplomatic</seg></p>
+         <editorialDecl>
+            <p>
+               <list>
+                  <item> 1.長歌・短歌・その他の本文という3種類のテキストを基本として構成されるものとして，それぞれ<gi>ab</gi>エレメント，<gi>lg</gi>
+                     エレメント，<gi>p</gi>
+                     エレメントでマークアップするとともに，長歌・短歌は@type属性で明示する．作者については@corresp属性でxml:id参照を付与する． </item>
+                  <item> 2.登場する人名は，<gi>back</gi>中の<gi>listPerson</gi>に<gi>person</gi>
+                     としてリストし，それぞれにxml:idを付与して他の箇所から参照できるようにする． </item>
+                  <item> 3.短歌の本文と訓の対応は，<gi>lg</gi>内でそれぞれ<gi>l</gi>
+                     でマークアップし，@xml:id/@correp属性で参照する．長歌の傍訓は，現在ルビのマークアップに際してよく用いられている<gi>seg</gi>タグと@type属性のruby,
+                     rt, rbを用いて，傍訓とその対象を記述する．位置情報は，@rendition属性で位置情報を記述する． </item>
+                  <item> 4.本文以外のテキスト（ここでは便宜上，これを「書き入れ」と称する）については，種類に応じて<gi>note</gi>，<gi>add</gi>，<gi>
+                     corr</gi>エレメントを用いてマークアップを行う．<gi>note</gi>
+                     には内容的にみていくつかのタイプがあるため，これを@type属性で区別する．また，位置情報が重要になる場合もあるため，可能な限り，@place属性で位置情報を記述する．位置情報の値は，TEIガイドラインで提供されている値を用いることを基本とするが，上下左右の余白に記述されている場合は，margin-*というプレフィックスを値につけることで対応する． </item>
+                  <item> 5. <gi>note</gi>の@typeは，本資料の書き入れの状況に鑑み，以下のように設定した．また，朱字については，今回は対象外とする．合点（異文，異訓，摘句），注，異文，異訓，訓，送り，割書，補読
+                     なお，合点についてはさらに3つに細分化されるが，これは@subtype属性を用いて記述する．それぞれの由来については@resp属性で示す． </item>
+                  <item> 6. 補入については，<gi>add</gi>エレメントを用い，@place属性をすべて付与する． </item>
+                  <item> 7.訂正については，ミセケチがある場合は<gi>del</gi>で削除を示して追記には<gi>add</gi>を付与し，全体を<gi>subst</gi>
+                     で囲んでいる．また，ミセケチがない場合は<gi>corr</gi>で訂正を示し，訂正の対象になっているものを<gi>sic</gi>，両者を<gi>
+                     choice</gi>で囲むことで訂正対象と訂正との関係を明示している．すなわち，以下のようになる． ・ミセケチあり： <![CDATA[<subst><del>誤字</del><add>訂正文字</add></subst>]]> ・ミセケチなし： <![CDATA[<choice><sic>誤字</sic><corr>訂正文字</corr></choice>]]>
+                     としている．いずれも，その由来については@resp属性で示す． </item>
+                  <item> 8.書き入れは，本文の任意の箇所が対象になることが多い．それを機械的に確認できるのであれば，機械的な分析を通じた発見の可能性はより大きくなる．そこで，<gi>
+                     note</gi>の対象になるテキストを明示するようにマークアップすることとする．具体的には，本文中の対象の始点に<gi>note</gi>
+                     エレメントを挿入し，終点には，@type=”noteEnd”属性を持たせた空タグの<gi>anchor</gi>
+                     エレメントを入れる．また，始点と終点がわかりにくい場合には，<gi>anchor</gi>に@xml:id属性を付与し，<gi>note</gi>
+                     エレメントに用意されている@targetEndから参照することで，始点と終点の関係を明示できるようにする． </item>
+                  <item>
+                     9.書き入れの中には，定家本を由来とするものと，そうでないものとの少なくとも2種類が存在することが想定される．それについては，@resp属性で示して機械的に区別できるようにする． </item>
+                  <item> 10.割書（割注）については，<gi>note</gi>タグでマークアップを行う．割書中の改行は，通常の改行<gi>lb</gi>と区別するために，<gi>
+                     milestone</gi>@unit="wbr" を用いる． </item>
+                  <item> 11. インデントの大きさの表現には@styleを用い，emを単位として位置を大まかに確認できるようにする． </item>
+                  <item> 12. 既存の研究成果や研究活動との親和性を少しでも確保するため，旧国歌大観番号をxml:idとして付与することで，参照をしやすいようにする． </item>
+                  <item> 13. <gi>pb</gi>
+                     エレメントは，頁ごとに対応させ，既存の頁の数え方にあわせた値を持たせることを基本とし，後述するように，頁画像段位で，IIIFに対応するための@source属性と@corresp属性を付与する． </item>
+                  <item> 14. IIIF Manifestとテキストデータの対応づけについては，まず，Manifest URIが<gi>facsimile</gi>に，Canvas
+                     URIが<gi>surface</gi>に，フルサイズ画像のIIIF Image API URIが<gi>graphic</gi>
+                     に対応するように，それぞれのURIを@source属性で記述する．その上で，テキストの位置と画像コマの対応については，<gi>surface</gi>
+                     にxml:id属性を付与し，その値を<gi>pb</gi>から@corresp属性で参照させて，各画像コマ中のテキストの始まりと<gi>pb</gi>
+                     タグが対応づけられるようにする． </item>
+                  <item> 15. 特殊な旧字や異体字が使われている場合は、<gi>choice</gi>エレメント内に原資料の文字を<gi>orig</gi>
+                     エレメント、新字などに直した字を<gi>reg</gi>エレメント内で示した。 ・<![CDATA[<choice><orig>原資料の文字</orig><reg>新字</reg></choice>]]>
+                  </item>
+               </list>
+            </p>
+         </editorialDecl>
+         <tagsDecl>
+            <rendition xml:id="pr">place: right</rendition>
+            <rendition xml:id="pl">place: left</rendition>
+            <rendition xml:id="pmt">place: margin-top</rendition>
+            <rendition xml:id="pmb">place: margin-bottom</rendition>
+            <rendition xml:id="cr">color: red</rendition>
+            <rendition xml:id="cc">color: copper</rendition>
+         </tagsDecl>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <persName/>
+            <date>平安時代・11世紀</date>
+         </creation>
+         <handNotes>
+            <handNote/>
+         </handNotes>
+         <langUsage>
+            <language ident="jpn">日本語</language>
+         </langUsage>
+      </profileDesc>
+   </teiHeader>
+   <facsimile sameAs="https://emuseum.nich.go.jp/iiifapi/100167001/manifest.json">
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-001.tif/full/full/0/default.jpg"
+         xml:id="page001" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-001.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-001.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="表紙01" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="表紙02" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-002.tif/full/full/0/default.jpg"
+         xml:id="page002" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-002.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-002.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="表紙裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="一丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-003.tif/full/full/0/default.jpg"
+         xml:id="page003" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-003.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-003.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="一丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="二丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-004.tif/full/full/0/default.jpg"
+         xml:id="page004" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-004.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-004.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="二丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="三丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-005.tif/full/full/0/default.jpg"
+         xml:id="page005" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-005.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-005.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="三丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="四丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-006.tif/full/full/0/default.jpg"
+         xml:id="page006" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-006.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-006.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="四丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="五丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-007.tif/full/full/0/default.jpg"
+         xml:id="page007" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-007.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-007.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="五丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="六丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-008.tif/full/full/0/default.jpg"
+         xml:id="page008" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-008.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-008.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="六丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="七丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-009.tif/full/full/0/default.jpg"
+         xml:id="page009" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-009.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-009.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="七丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="八丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-010.tif/full/full/0/default.jpg"
+         xml:id="page010" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-010.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-010.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="八丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="九丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-011.tif/full/full/0/default.jpg"
+         xml:id="page011" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-011.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-011.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="九丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="一〇丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-012.tif/full/full/0/default.jpg"
+         xml:id="page012" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-012.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-012.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="一〇丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="一一丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-013.tif/full/full/0/default.jpg"
+         xml:id="page013" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-013.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-013.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="一一丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="一二丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-014.tif/full/full/0/default.jpg"
+         xml:id="page014" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-014.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-014.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="一二丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="一三丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-015.tif/full/full/0/default.jpg"
+         xml:id="page015" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-015.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-015.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="一三丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="一四丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-016.tif/full/full/0/default.jpg"
+         xml:id="page016" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-016.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-016.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="一四丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="一五丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-017.tif/full/full/0/default.jpg"
+         xml:id="page017" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-017.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-017.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="一五丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="一六丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-018.tif/full/full/0/default.jpg"
+         xml:id="page018" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-018.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-018.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="一六丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="一七丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-019.tif/full/full/0/default.jpg"
+         xml:id="page019" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-019.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-019.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="一七丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="一八丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-020.tif/full/full/0/default.jpg"
+         xml:id="page020" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-020.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-020.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="一八丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="一九丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-021.tif/full/full/0/default.jpg"
+         xml:id="page021" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-021.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-021.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="一九丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="二〇丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-022.tif/full/full/0/default.jpg"
+         xml:id="page022" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-022.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-022.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="二〇丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="二一丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-023.tif/full/full/0/default.jpg"
+         xml:id="page023" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-023.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-023.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="二一丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="二二丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-024.tif/full/full/0/default.jpg"
+         xml:id="page024" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-024.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-024.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="二二丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="二三丁表" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-025.tif/full/full/0/default.jpg"
+         xml:id="page025" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-025.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-025.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="二三丁裏" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="裏表紙裏" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+      <surface
+         sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-026.tif/full/full/0/default.jpg"
+         xml:id="page026" ulx="0" uly="0" lrx="10000" lry="7070">
+         <graphic
+            url="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-026.tif/full/full/0/default.jpg"
+            sameAs="https://emuseum.nich.go.jp/iiif/?IIIF=/100167001000-026.tif" width="2000px"
+            height="1336px"/>
+         <zone xml:id="裏表紙01" ulx="5000" uly="0" lrx="10000" lry="7070"/>
+         <zone xml:id="裏表紙02" ulx="0" uly="0" lrx="5000" lry="7070"/>
+      </surface>
+   </facsimile>
+   
+   <text>
+      <body style="writing-mode:vertical-rl">
+         <ab/>
+         <div n="元暦校本万葉集　巻一（古河本）">
+            <div n="元暦校本万葉集巻一">
+               <pb facs="#表紙02"/>
+               <pb facs="#表紙裏"/>
+               <pb facs="#一丁表"/>
+               <pb facs="#一丁裏"/>
+               <pb facs="#二丁表"/>
+               <pb facs="#二丁裏"/>
+               <pb facs="#三丁表"/>
+               <pb facs="#三丁裏"/>
+               <pb facs="#四丁表"/>
+               <pb facs="#四丁裏"/>
+               <pb facs="#五丁表"/>
+               <pb facs="#五丁裏"/>
+               <pb facs="#六丁表"/>
+               <pb facs="#六丁裏"/>
+               <pb facs="#七丁表"/>
+               <pb facs="#七丁裏"/>
+               <pb facs="#八丁表"/>
+               <div corresp="#雄略天皇">
+                  <div xml:id="旧国歌大観番号00001" n="1" type="旧国歌大観番号">
+                     <note resp="#元暦校本" type="注" rend="copper" xml:id="note0100001" place="right"
+                        ><choice><orig>萬</orig><reg>万</reg></choice>葉集巻第一
+                        雑歌</note>
+                     <note resp="#元暦校本" type="上書" subtype="裏書" xml:id="note0100002"
+                        place="margin-head" target="#notestart0100002e" targetEnd="#noteEnd0100002e">
+                        裏書云 コモヨコモ チヌクシモヨモ フクシモチ コノオカニナツム スコカイヘ キケナツケサネ ソラニミツ <milestone
+                           unit="br"/>ヤマトノクニハ
+                        オシナヘテ ワレコソオラシ ツケナヘテ ワレコソオラメ ワレコソハ <milestone
+                           unit="br"/>セナニハツケメイヘヲモナヲモ</note>
+                     <p style="text-indent:2em"><note resp="#元暦校本" type="注" rend="red"
+                           xml:id="note0100003" place="margin-head" targetEnd="#note0100003e"
+                           >雄略天皇</note>
+                        泊瀬<anchor type="noteBeginning"
+                           xml:id="notestart0100012e"/>朝倉<anchor type="noteEnd"
+                           xml:id="note0100003e"/> 宮<anchor type="noteEnd" xml:id="noteEnd0100012e"
+                           />御宇天皇代 <note resp="#万葉集" type="割書" xml:id="note0100005"><note
+                              resp="#元暦校本" type="訓" rend="red" xml:id="note0100004" place="right"
+                              targetEnd="#note0100004e">オホハツセノワカタケ</note>太泊瀬稚武<anchor
+                              type="noteEnd" xml:id="note0100004e"/>天皇</note></p>
+                     <note resp="#元暦校本" type="上書" subtype="注" xml:id="note0100010" place="right"
+                        target="#notestart0100010e" targetEnd="#noteEnd0100010e">神代事也<milestone
+                           unit="br"/>
+                        <note resp="#元暦校本" type="訓" rend="red" xml:id="note0100006" place="right"
+                           targetEnd="#note0100006e">クシタマハヤ<milestone unit="br"
+                           />ヒノミコトリ</note>櫛玉饒<milestone unit="br"/>日命乗<anchor type="noteEnd"
+                           xml:id="note0100006e"/>天磐<milestone unit="br"/><choice>
+                           <orig>舩</orig>
+                           <reg>船</reg>
+                        </choice>而<note resp="#元暦校本" type="補読" rend="red" xml:id="note0100007"
+                           place="right" targetEnd="#note0100007e">タマフ</note> 廻行<anchor
+                           type="noteEnd" xml:id="note0100007e"/> 虚空之故 <note resp="#元暦校本" type="補読"
+                           rend="red" xml:id="note0100008" place="right" targetEnd="#note0100008e"
+                           >ノ</note>此<anchor type="noteEnd" xml:id="note0100008e"/><choice>
+                           <orig>國</orig>
+                           <reg>国</reg>
+                        </choice>号 <note resp="#元暦校本" type="訓" rend="red" xml:id="note0100009"
+                           place="right" targetEnd="#note0100009e">ツラミツヤマト</note>虚見津大和<anchor
+                           type="noteEnd" xml:id="note0100009e"/>之<choice>
+                           <orig>國</orig>
+                           <reg>国</reg>
+                        </choice></note>
+                     <note resp="#元暦校本" type="上書" subtype="割書" xml:id="note0100011"
+                        >天磐舟鳥也見古事記序</note>
+                     <p style="text-indent:2em" n="題詞00001" xml:id="題詞00001">天皇御製歌</p>
+                     <note resp="#元暦校本" type="上書" subtype="注" xml:id="note0100012"
+                        place="margin-head" target="#notestart0100012e" targetEnd="#noteEnd0100012e"
+                        >大和国城上郡磐坂谷口是也</note>
+                     <ab xml:id="manyo0001" type="長歌">
+                        <lb/>
+                        <seg type="ruby">
+                           <seg type="rb"><anchor type="noteBeginning" xml:id="notestart0100002e"
+                              />籠毛與美籠母乳布久思毛與美夫君志持此岳</seg>
+                           <lb/>
+                           <seg type="rt" xml:id="note0100013" resp="#元暦校本" rend="right"
+                              rendition="#cr">コケコロモチフクシモヨミフクシモチコノヲカ</seg>
+                        </seg>
+                        <pb facs="#八丁裏"/>
+                        <lb/>
+                        <seg type="ruby">
+                           <seg type="rb">尓菜採須<choice>
+                                 <orig>兒</orig>
+                                 <reg>児</reg>
+                              </choice>家吉閑名告紗根<anchor type="noteBeginning"
+                                 xml:id="notestart0100010e"/>虚見津<anchor type="noteEnd"
+                                 xml:id="noteEnd0100010e"/>山跡乃</seg>
+                           <lb/>
+                           <seg type="rt" xml:id="note0100014" resp="#元暦校本" rend="right"
+                              rendition="#cr">ニナツムスコイヘキケナツケサネソラミツヤマトノ</seg>
+                        </seg>
+                        <lb/>
+                        <seg type="ruby">
+                           <seg type="rb"><choice>
+                                 <orig>國</orig>
+                                 <reg>国</reg>
+                              </choice>者押奈戸手吾許曽居師告名倍手吾己</seg>
+                           <lb/>
+                           <seg type="rt" xml:id="note0100015" resp="#元暦校本" rend="right"
+                              rendition="#cr">クニハオシナへテワレコソシラミツケナヘテワレコ</seg>
+                        </seg>
+                        <lb/>
+                        <seg type="ruby">
+                           <seg type="rb">曽座 <note resp="#元暦校本" type="訓" rend="copper"
+                                 xml:id="note0100017" place="left" targetEnd="#note0100017e"
+                                 >ワカユルス</note>
+                              我許<anchor type="noteEnd"
+                                 xml:id="note0100017e"/>
+                              <add place="left" resp="#元暦校本" xml:id="note0100018" rend="red"
+                                 >◯者</add>背齒告目家呼毛名雄母</seg>
+                           <lb/>
+                           <seg type="rt" xml:id="note0100016" resp="#元暦校本" rend="right"
+                              rendition="#cr">ソオラメワレコソハセナニハツケメイヘヲモナヲモ</seg>
+                        </seg>
+                        <anchor type="noteEnd" xml:id="noteEnd0100002e"/>
+                     </ab>
+                  </div>
+               </div>
+               <div corresp="#舒明天皇">
+                  <div xml:id="旧国歌大観番号00002" n="2" type="旧国歌大観番号">
+                     <p style="text-indent:2em"><note resp="#元暦校本" type="注" rend="copper"
+                           place="right" xml:id="note0100020" targetEnd="#note0100020e">舒明ゝゝ</note>
+                        <note resp="#元暦校本" type="訓" rend="copper" xml:id="note0100021" place="right"
+                           targetEnd="#note0100021e">タケイチヲカモト</note><choice>
+                           <orig>髙</orig>
+                           <reg>高</reg>
+                        </choice>市<choice>
+                           <orig>罡</orig>
+                           <reg>岡</reg>
+                        </choice>本宮 <anchor type="noteEnd" xml:id="note0100020e"/><anchor
+                           type="noteEnd" xml:id="note0100021e"/>御宇天皇代</p>
+                     <p style="text-indent:3em" n="題詞00002" xml:id="題詞00002">天皇登香具山望<choice>
+                           <orig>國</orig>
+                           <reg>国</reg>
+                        </choice>之時御製歌<note resp="#万葉集" type="割書" xml:id="note0100023">
+                           <note resp="#元暦校本" type="訓" rend="copper" xml:id="note0100022"
+                              place="right" targetEnd="#note0100022e">オキナカタラシヒロ <note resp="#元暦校本"
+                                 type="異訓" rend="copper" xml:id="note0100019" place="right"
+                                 targetEnd="#note0100019e">ヌ</note>
+                        メ<anchor type="noteEnd"
+                                 xml:id="note0100019e"/>カノ</note>息長足日廣額 <note resp="#元暦校本" type="異訓"
+                              rend="red" place="left" xml:id="note0100024" targetEnd="#note0100024e"
+                              >之</note>々<anchor type="noteEnd" xml:id="note0100024e"/><anchor
+                              type="noteEnd" xml:id="note0100022e"/>天皇</note></p>
+                     <ab xml:id="manyo0002" type="長歌">
+                        <lb/>
+                        <seg type="ruby">
+                           <seg type="rb">山常庭村山有等取與呂布天乃香具山騰</seg>
+                           <lb/>
+                           <seg type="rt" xml:id="note0100026" resp="#元暦校本" rend="right"
+                              rendition="#cr">ヤマトニハムラヤマ <subst resp="#元暦校本">
+                                 <del type="ミセケチ" xml:id="note0100027">キ</del>
+                                 <add rend="right" xml:id="note0100025">ア</add>
+                              </subst>
+                              クトトリヨロフアマノカコヤマノホリ</seg>
+                        </seg>
+                        <lb/>
+                        <seg type="ruby">
+                           <seg type="rb">立<choice>
+                                 <orig>國</orig>
+                                 <reg>国</reg>
+                              </choice>見乎為者<choice>
+                                 <orig>國</orig>
+                                 <reg>国</reg>
+                              </choice>原波煙立<note resp="#元暦校本" type="増画" xml:id="note0100031"
+                                 rend="red" targetEnd="#note0100031e">（増画）「籠」</note>龍<anchor
+                                 type="noteEnd" xml:id="note0100031e"/>海原波加<choice><orig>萬</orig><reg>万</reg></choice>目</seg>
+                           <lb/>
+                           <seg type="rt" xml:id="note0100030" resp="#元暦校本" rend="right"
+                              rendition="#cr">タチクニミヲスレハクニ <add place="right" resp="#元暦校本"
+                                 xml:id="note0100028" rend="copper">ツ</add>ハラハケフ <add place="right"
+                                 resp="#元暦校本" xml:id="note0100029" rend="copper">リ</add>
+                              タチマヽウナハラハカマメ</seg>
+                        </seg>
+                        <pb facs="#九丁表"/>
+                        <lb/>
+                        <seg type="ruby">
+                           <seg type="rb">立多都怜〓[忄+可]<choice>
+                                 <orig>國</orig>
+                                 <reg>国</reg>
+                              </choice>曽蜻<choice>
+                                 <orig>嶋</orig>
+                                 <reg>島</reg>
+                              </choice>八 <note resp="#元暦校本" type="増画" xml:id="note0100033"
+                                 rend="red" targetEnd="#note0100033e">（増画）「間」</note>門<anchor
+                                 type="noteEnd" xml:id="note0100033e"/>跡能<choice>
+                                 <orig>國</orig>
+                                 <reg>国</reg>
+                              </choice>者</seg>
+                           <lb/>
+                           <seg type="rt" xml:id="note0100032" resp="#元暦校本" rend="right"
+                              rendition="#cr">タチタツオモシロキクニヲソアキツシマヤマヽトノクニハ</seg>
+                        </seg>
+                     </ab>
+                  </div>
+               </div>
+               <div corresp="#中皇命">
+                  <div xml:id="旧国歌大観番号00003" n="3" type="旧国歌大観番号">
+                     <p style="text-indent:2em" n="題詞00003" xml:id="題詞00003"><note resp="#元暦校本"
+                           type="注" rend="red" place="right" xml:id="note0100034"
+                           targetEnd="#note0100034e">舒明ゝゝ</note> 天皇<anchor type="noteEnd"
+                           xml:id="note0100034e"/>遊獦内野之時中皇命使 <note resp="#元暦校本" type="訓" rend="red"
+                           xml:id="note0100035" place="right" targetEnd="#note0100035e"
+                           >ハシフトノムラシ</note>
+                        間人連老<anchor type="noteEnd" xml:id="note0100035e"
+                        />獻歌</p>
+                     <ab xml:id="manyo0003" type="長歌">
+                        <lb/>
+                        <seg type="ruby">
+                           <seg type="rb">八隅知之我大王乃朝庭取撫賜夕庭伊縁立</seg>
+                           <lb/>
+                           <seg type="rt" xml:id="note0100036" resp="#元暦校本" rend="right"
+                              rendition="#cr">ヤスミシルワカオホキミノアシタニハトリナテタマヒユフヘニハイヨリタテリ</seg>
+                        </seg>
+                        <lb/>
+                        <seg type="ruby">
+                           <seg type="rb">之御<choice>
+                                 <orig>㔟</orig>
+                                 <reg>勢</reg>
+                              </choice>乃梓弓之奈加弭乃音為奈利朝獦</seg>
+                           <lb/>
+                           <seg type="rt" xml:id="note0100038" resp="#元暦校本" rend="right"
+                              rendition="#cr">シミイキホヒノアツサノユミノナカスヱノ <note resp="#元暦校本" type="異訓"
+                                 place="right" xml:id="note0100037" targetEnd="#note0100037e"
+                                 >ヲト</note>
+                              コヱ<anchor type="noteEnd"
+                                 xml:id="note0100037e"/>オトスナリアサカリ</seg>
+                        </seg>
+                        <lb/>
+                        <seg type="ruby">
+                           <seg type="rb">尓 <del resp="#元暦校本" type="ミセケチ" rend="red"
+                                 xml:id="note0100042">今</del>
+                              <del resp="#元暦校本" type="ミセケチ" rend="red" xml:id="note0100043"
+                                >立</del>
+                              <del resp="#元暦校本" type="ミセケチ" rend="red" xml:id="note0100044"
+                                >浪</del>
+                              <del resp="#元暦校本" type="ミセケチ" rend="red" xml:id="note0100045"
+                                >良</del>
+                              <del resp="#元暦校本" type="ミセケチ" rend="red" xml:id="note0100046"
+                                >思</del>
+                              <del resp="#元暦校本" type="ミセケチ" rend="red" xml:id="note0100047"
+                                >暮</del>
+                              <del resp="#元暦校本" type="ミセケチ" rend="red" xml:id="note0100048"
+                                >獦</del>
+                              <del resp="#元暦校本" type="ミセケチ" rend="red" xml:id="note0100049"
+                                >尓</del>
+                              今他田渚良之 <note resp="#元暦校本" type="訓"
+                                 xml:id="note0100040" place="right" targetEnd="#note0100040e"
+                                 >ミイキヲヒノ</note>
+                              御執能<anchor type="noteEnd"
+                                 xml:id="note0100040e"/></seg>
+                           <lb/>
+                           <seg type="rt" xml:id="note0100039" resp="#元暦校本" rend="right"
+                              rendition="#cc">ニイマソタツラシユフカリニイマタソラ </seg>
+                        </seg>
+                        <lb/>
+                        <seg type="ruby">
+                           <seg type="rb">梓 <add place="right" resp="#元暦校本" xml:id="note0100051"
+                                 rend="red">◯能</add>弓之奈加 <note resp="#元暦校本" type="訓" rend="copper"
+                                 xml:id="note0100053" place="left" targetEnd="#note0100053e"
+                                 >ハツ</note>
+                              弭<anchor type="noteEnd"
+                                 xml:id="note0100053e"/>
+                              <note resp="#元暦校本" type="補読" rend="red" place="right"
+                                 xml:id="note0100052" targetEnd="#note0100052e">ノ</note>乃<anchor
+                                 type="noteEnd" xml:id="note0100052e"/>音為奈里</seg>
+                           <lb/>
+                           <seg type="rt" xml:id="note0100050" resp="#元暦校本" rend="right"
+                              rendition="#cc">アツサユミノ ヲトスナリ</seg>
+                        </seg>
+                        <note resp="#元暦校本" type="注" rend="copper" place="margin-head"
+                           xml:id="note0100041" targetEnd="#note0100041e">［ 以後 ］<milestone unit="br"
+                              />似別歌<milestone unit="br"/>弭或説カミ<milestone unit="br"/>或説トモ</note>
+                        <anchor type="noteEnd" xml:id="note0100041e"/>
+                     </ab>
+                  </div>
+                  
+                     <div xml:id="旧国歌大観番号00004" n="4" type="旧国歌大観番号">
+                        <p style="text-indent:2em" n="題詞00004" xml:id="題詞00004">反歌</p>
+                        <pb facs="#九丁裏"/>
+                        <lg xml:id="manyo0004" type="短歌">
+                           <note resp="#元暦校本" type="傍訓" rend="copper" xml:id="note0100056"
+                              place="left" targetEnd="#note0100056e"
+                              >タマキハルウチノヲホノニコマナメテアサフマスラムソノ</note>
+                           <l xml:id="manyo0004_01"><lb/>
+                              <note resp="#元暦校本" type="裏書" xml:id="note0100055" place="right"
+                                 targetEnd="#note0100055e">裏書云<milestone unit="br"/>
+                                 <note resp="#元暦校本" type="訓" xml:id="note0100054" place="right"
+                                    targetEnd="#note0100054e">タマキハル</note>霊剋内<anchor type="noteEnd"
+                                    xml:id="note0100054e"/>限者謂膽浮州人寿<milestone unit="br"
+                                 />一百廿年</note> 玉剋春内<anchor type="noteEnd" xml:id="note0100055e"
+                              />乃大野尓馬数而朝布麻須等六其</l>
+                           <anchor type="noteEnd" xml:id="note0100056e"/>
+                           <note resp="#元暦校本" type="傍訓" rend="copper" xml:id="note0100057"
+                              place="right" targetEnd="#note0100057e">クサフカノ</note>
+                           <l xml:id="manyo0004_02"><lb/>草深野</l>
+                           <anchor type="noteEnd" xml:id="note0100057e"/>
+                           <l xml:id="manyokun0004_01" corresp="#manyo0004"
+                              ><lb/>たまきはるうちのおほのにこまなめてあ</l>
+                           <l xml:id="manyokun0004_02" corresp="#manyo0004"><lb/>さふますらんそのくさふけの</l>
+                        </lg>
+                     </div>
+               </div></div>
+                  <div corresp="#軍王">
+                     <div xml:id="旧国歌大観番号00005" n="5" type="旧国歌大観番号">
+                        <p style="text-indent:2em" n="題詞00005" xml:id="題詞00005"><note resp="#元暦校本"
+                              type="訓" rend="copper" xml:id="note0100058" place="right"
+                              targetEnd="#note0100058e">シタマ［ ］ノア［
+                              ］</note> 幸讃岐<choice>
+                              <orig>國</orig>
+                              <reg>国</reg>
+                           </choice><anchor type="noteEnd" xml:id="note0100058e"/>安益郡之時軍王見山作歌</p>
+                        <ab xml:id="manyo0005" type="長歌">
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">霞立長春日乃晩家流和豆肝之良受村肝乃</seg>
+                              <lb/>
+                              <seg type="rt" xml:id="note0100059" resp="#元暦校本" rend="right"
+                                 rendition="#cr">カスミタツナカキハルヒノクレニケルワツオモシラスムラキモノ</seg>
+                           </seg>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">心乎痛見奴要 <note resp="#元暦校本" type="訓" rend="copper"
+                                    xml:id="note0100061" place="right" targetEnd="#note0100061e"
+                                    >コ</note>
+                                 子<anchor type="noteEnd"
+                                    xml:id="note0100061e"/>鳥 <note resp="#元暦校本" type="異訓"
+                                    place="right" xml:id="note0100060" targetEnd="#note0100060e"
+                                    >
+                                 ウラフレヲレハ</note>卜 <note
+                                    resp="#元暦校本" type="訓" rend="copper" xml:id="note0100065"
+                                    place="left" targetEnd="#note0100065e">
+                                 ウラナケキヲ［レ］ハヲ</note>歎居者<anchor
+                                    type="noteEnd" xml:id="note0100065e"/><anchor type="noteEnd"
+                                    xml:id="note0100060e"/>
+                                 <note resp="#元暦校本" type="訓" rend="copper" xml:id="note0100062"
+                                    place="right" targetEnd="#note0100062e">タマタスキ</note>珠手次<anchor
+                                    type="noteEnd" xml:id="note0100062e"/>懸乃宜</seg>
+                              <lb/>
+                              <seg type="rt" xml:id="note0100063" resp="#元暦校本" rend="right"
+                                 rendition="#cr">コヽロヲイタミヌエ トリ <del resp="#元暦校本" type="ミセケチ"
+                                     xml:id="note0100064"
+                                 >ノ</del>サハタオタスシ カケノヨロシ</seg>
+                           </seg>
+                           <pb facs="#一〇丁表"/>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">久遠神吾大王乃行幸能山越風乃獨座吾衣</seg>
+                              <lb/>
+                              <seg type="rt" xml:id="note0100066" resp="#元暦校本" rend="right"
+                                 rendition="#cr">クトヲツカミワカオホキミノミユキスルノヽヤマコシノカセノヒトリヲルワカコロモ</seg>
+                           </seg>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">手尓朝夕尓 <note resp="#元暦校本" type="訓" rend="copper"
+                                    xml:id="note0100068" place="right" targetEnd="#note0100068e">
+                                 カヘリモヒヌ <del resp="#元暦校本"
+                                       type="ミセケチ"  xml:id="note0100067" rend="copper">
+                                    <del resp="#元暦校本" type="ミセケチ" rend="copper"
+                                          xml:id="note0100069">レ</del>
+                                    </del>
+                                 ハマスラヲ</note>還比奴婆大夫<anchor
+                                    type="noteEnd" xml:id="note0100068e"/>登念有我母草枕客</seg>
+                              <lb/>
+                              <seg type="rt" xml:id="note0100071" resp="#元暦校本" rend="right"
+                                 rendition="#cr">テニアサユフニ トオモフルワレモクサマクラタ <note resp="#元暦校本" type="上書"
+                                    subtype="裏書" xml:id="note0100070" targetEnd="#note0100070e"
+                                    >ヒ</note>ヒ<anchor type="noteEnd" xml:id="note0100070e"/>ニ</seg>
+                           </seg>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">尓之有者思遣鶴寸乎白<choice>
+                                    <orig>圡</orig>
+                                    <reg>土</reg>
+                                 </choice>網能浦之海處女</seg>
+                              <lb/>
+                              <seg type="rt" xml:id="note0100073" resp="#元暦校本" rend="right"
+                                 rendition="#cr"> シアレハオモヒヤルタツキヲシラスア <note resp="#元暦校本" type="異訓"
+                                    place="right" xml:id="note0100072" targetEnd="#note0100072e"
+                                    >ミノ</note>
+                                 □<anchor type="noteEnd"
+                                    xml:id="note0100072e"/>ウラノアマヲトメ</seg>
+                           </seg>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">等之焼塩乃念曽所焼吾下情</seg>
+                              <lb/>
+                              <seg type="rt" xml:id="note0100074" resp="#元暦校本" rend="right"
+                                 rendition="#cr">ラカヤクシホノオモヒソヤクルワカシタコヽロ</seg>
+                           </seg>
+                        </ab>
+                     </div>
+                  
+                     <div xml:id="旧国歌大観番号00006" n="6" type="旧国歌大観番号">
+                        <p style="text-indent:2em" n="題詞00006" xml:id="題詞00006">反歌</p>
+                        <pb facs="#一〇丁裏"/>
+                        <lg xml:id="manyo0006" type="短歌">
+                           <l xml:id="manyo0006_01"><lb/>山越乃風乎時自見<choice><orig>寐</orig><reg>寝</reg></choice>夜不落家在妹乎懸而</l>
+                           <l xml:id="manyo0006_02"><lb/>小竹積</l>
+                           <l xml:id="manyokun0006_01" corresp="#manyo0006"><lb/>
+                              やまこしのかせをときしみぬるよおちすいへ</l>
+                           <l xml:id="manyokun0006_02" corresp="#manyo0006"><lb/>にあるいもをかけてしのひつ</l>
+                        </lg>
+                        <p style="text-indent:3em">右<choice><orig>檢</orig><reg>検</reg></choice>日本書紀 <note resp="#元暦校本" type="訓" rend="copper"
+                              xml:id="note0100075" place="right" targetEnd="#note0100075e"
+                              >シキスルコト</note>無幸於<anchor type="noteEnd" xml:id="note0100075e"/>讃岐<choice>
+                              <orig>國</orig>
+                              <reg>国</reg>
+                           </choice>亦軍王未詳</p>
+                        <p style="text-indent:3em">也但 <note resp="#元暦校本" type="訓" rend="copper"
+                              xml:id="note0100076" place="right" targetEnd="#note0100076e"
+                              >ノヲクラノ</note>山上憶良大夫<anchor type="noteEnd" xml:id="note0100076e"
+                              />類聚歌林曰記 曰<add place="right" resp="#元暦校本" xml:id="note0100077"
+                              rend="red">◯</add></p>
+                        <p style="text-indent:2em">
+                           <note resp="#元暦校本" type="合点" rend="red" place="right"
+                              xml:id="note0100078" targetEnd="#note0100078e">〽</note>天皇十一年<anchor
+                              type="noteEnd" xml:id="note0100078e"/>己亥冬十二月己巳 <note resp="#元暦校本"
+                              type="注" place="right" xml:id="note0100079" targetEnd="#note0100079e"
+                              >朔イ</note>朝<anchor type="noteEnd" xml:id="note0100079e"/>壬午 <note
+                              resp="#元暦校本" type="訓点" rend="red" place="left" xml:id="note0100080"
+                              targetEnd="#note0100080e">二</note>幸<anchor type="noteEnd"
+                              xml:id="note0100080e"/>于</p>
+                        <pb facs="#一一丁表"/>
+                        <p style="text-indent:2em">伊豫温湯宮<note resp="#万葉集" type="割書"
+                              xml:id="note0100081">云々</note></p>
+                        <p style="text-indent:2em">一書 <add place="right" resp="#元暦校本"
+                              xml:id="note0100082" rend="red">◯云</add>是時宮前在二樹木此之二樹 <note
+                              resp="#元暦校本" type="訓" rend="red" xml:id="note0100083" place="right"
+                              targetEnd="#note0100083e">イカルカヒメ</note>
+                           斑鳩比 <note resp="#元暦校本" type="注"
+                              place="left" xml:id="note0100084" targetEnd="#note0100084e"
+                              >米イ</note>来<anchor type="noteEnd" xml:id="note0100084e"/><anchor
+                              type="noteEnd" xml:id="note0100083e"/></p>
+                        <p style="text-indent:2em">二鳥 <note resp="#元暦校本" type="訓" rend="red"
+                              xml:id="note0100085" place="right" targetEnd="#note0100085e"
+                              >オホクアツマル</note>大集<anchor type="noteEnd" xml:id="note0100085e"
+                              />時勅多 <note resp="#元暦校本" type="訓" rend="red" xml:id="note0100086"
+                              place="right" targetEnd="#note0100086e">カケテ</note>
+                           挂<anchor type="noteEnd"
+                              xml:id="note0100086e"/>
+                           <note resp="#元暦校本" type="訓点" rend="red" place="left" xml:id="note0100091"
+                              targetEnd="#note0100091e">―一</note>稲<note resp="#元暦校本" type="補読"
+                              rend="red" place="right" xml:id="note0100087"
+                              targetEnd="#note0100087e">ヲ</note>穂<anchor type="noteEnd"
+                              xml:id="note0100087e"/><anchor type="noteEnd" xml:id="note0100091e"
+                              />而<note resp="#元暦校本" type="送り" rend="red" place="right"
+                              xml:id="note0100088" targetEnd="#note0100088e">ハム</note>
+                           <note resp="#元暦校本" type="訓" rend="red" xml:id="note0100092" place="left"
+                              targetEnd="#note0100092e">ヤシナフ</note>養<anchor type="noteEnd"
+                              xml:id="note0100088e"/><anchor type="noteEnd" xml:id="note0100092e"/>
+                           之 <note resp="#元暦校本" type="注" place="right"
+                              xml:id="note0100089" targetEnd="#note0100089e">及イ</note>仍<anchor
+                              type="noteEnd" xml:id="note0100089e"/>作歌<note resp="#万葉集" type="割書"
+                              xml:id="note0100090">云々</note></p>
+                        <p style="text-indent:2em">若疑従此<note resp="#元暦校本" type="訓" rend="copper"
+                              xml:id="note0100093" place="right" targetEnd="#note0100093e"
+                              >タヨリニ</note>便<anchor type="noteEnd" xml:id="note0100093e"/>
+                           <note resp="#元暦校本" type="訓" rend="copper" xml:id="note0100094"
+                              place="left" targetEnd="#note0100094e">シタマヘルカ</note>幸之歟<anchor
+                              type="noteEnd" xml:id="note0100094e"/></p>
+                     </div>
+                  </div>
+                  <div corresp="#額田王">
+                     <div xml:id="旧国歌大観番号00007" n="7" type="旧国歌大観番号">
+                        <p style="text-indent:2em"><note xml:id="note0100095" place="right"
+                              resp="#元暦校本" type="注" rend="red" targetEnd="#note0100095e"
+                              >皇極天ゝ</note><note xml:id="note0100096" place="right" resp="#元暦校本"
+                              type="訓" rend="copper" targetEnd="#note0100096e">アスカヽハラ</note>
+                           <note
+                              xml:id="note0100100" place="margin-head" resp="#元暦校本" type="裏書"
+                              targetEnd="#note0100100e">
+                           裏書云<milestone unit="br"/>大和<choice>
+                                 <orig>國</orig>
+                                 <reg>国</reg>
+                              </choice><choice>
+                                 <orig>髙</orig>
+                                 <reg>高</reg>
+                              </choice>市<milestone unit="br"/>郡丘本宮同地也<milestone unit="br"
+                                 />皇極天皇也<note xml:id="note0100101" resp="#元暦校本" type="割書">女帝</note></note>
+                           明日<del resp="#元暦校本"
+                              type="ミセケチ" xml:id="note0100099" rend="red"
+                              >香</del>川原<anchor type="noteEnd" xml:id="note0100096e"/>宮<anchor
+                              type="noteEnd" xml:id="note0100095e"/><anchor type="noteEnd"
+                              xml:id="note0100100e"/>御宇天皇代<note xml:id="note0100098" resp="#万葉集"
+                              type="割書"><note xml:id="note0100097"
+                                 place="right" resp="#元暦校本" type="訓" rend="red"
+                                 targetEnd="#note0100097e">アメトヨタカライカシヒタラシヒメ</note>天豊財重日足姫天皇<anchor
+                                 type="noteEnd" xml:id="note0100097e"/></note></p>
+                        <p style="text-indent:3em" n="題詞00007" xml:id="題詞00007">額田王歌<note
+                              xml:id="note0100102" resp="#万葉集" type="割書">
+                           未詳</note></p>
+                        <lg xml:id="manyo0007" type="短歌">
+                           <l xml:id="manyo0007_01"><lb/>金野乃<note xml:id="note0100103" place="right"
+                                 resp="#元暦校本" type="訓" rend="copper" targetEnd="#note0100103e"
+                                 >ミクサ</note>美草<anchor type="noteEnd" xml:id="note0100103e"
+                              />苅葺屋杼礼里之兎道乃宮子能</l>
+                           <pb facs="#一一丁裏"/>
+                           <l xml:id="manyo0007_02"><lb/><note xml:id="note0100104" place="right"
+                                 resp="#元暦校本" type="訓" rend="copper" targetEnd="#note0100104e"
+                                 >
+                              カリホヽソヲモフ</note>借<note
+                                 xml:id="note0100105" place="left" resp="#元暦校本" type="合点"
+                                 subtype="注" targetEnd="#note0100105e">〽五</note>吾<anchor
+                                 type="noteEnd" xml:id="note0100105e"/>百磯所念<anchor type="noteEnd"
+                                 xml:id="note0100104e"/></l>
+                           <l xml:id="kunmanyo0007_01" corresp="#manyo0007_01"><lb/>あきのゝの<note
+                                 xml:id="note0100106" place="margin-left" resp="#元暦校本" type="訓"
+                                 rend="red" targetEnd="#note0100106e">ミクサ</note>をはな<anchor
+                                 type="noteEnd" xml:id="note0100106e"/>かりふきやとれりしうち</l>
+                           <l xml:id="kunmanyo0007_02" corresp="#manyo0007_02"><lb/>のみやこのかりほしそ<note
+                                 xml:id="note0100107" place="margin-left" resp="#元暦校本" type="訓"
+                                 rend="red" targetEnd="#note0100107e">オモ<milestone unit="br"
+                                 />ホユ</note>
+                              おもふ<anchor type="noteEnd"
+                                 xml:id="note0100107e"/></l>
+                        </lg>
+                        <p style="text-indent:3em">右<choice>
+                              <orig>检</orig>
+                              <reg>檢</reg>
+                           </choice>山上憶良大夫類聚歌林曰一書戊申年<milestone unit="br"
+                              />幸比良宮大御歌但紀曰五年春正月己卯<milestone unit="br"/>朔辛巳天皇至<note
+                              xml:id="note0100108" place="right" resp="#元暦校本" type="補読"
+                              rend="copper" targetEnd="#note0100108e">テ</note>自<anchor
+                              type="noteEnd" xml:id="note0100108e"/><note xml:id="note0100109"
+                              place="right" resp="#元暦校本" type="補読" rend="copper"
+                              targetEnd="#note0100109e">ノ</note>紀<anchor type="noteEnd"
+                              xml:id="note0100109e"/>温湯三月戊寅朔<milestone unit="br"/>天皇幸吉野宮肆<note
+                              xml:id="note0100110" place="right" resp="#元暦校本" type="補読"
+                              rend="copper" targetEnd="#note0100110e">シタマフ</note>宴<anchor
+                              type="noteEnd" xml:id="note0100110e"/>焉庚辰<note xml:id="note0100111"
+                              place="right" resp="#元暦校本" type="異文" rend="copper"
+                              targetEnd="#note0100111e">其</note>厶<anchor type="noteEnd"
+                              xml:id="note0100111e"/>日天皇幸<milestone unit="br"/>
+                           <pb facs="#一二丁表"/>
+                           近江之<note xml:id="note0100112" place="right"
+                              resp="#元暦校本" type="補読" rend="red" targetEnd="#note0100112e"
+                              >ノ</note><note xml:id="note0100113" place="left" resp="#元暦校本" type="訓"
+                              rend="copper" targetEnd="#note0100113e">ヒラノ</note>平<anchor
+                              type="noteEnd" xml:id="note0100112e"/><anchor type="noteEnd"
+                              xml:id="note0100113e"/>
+                           浦</p>
+                     </div>
+                  
+                     <div xml:id="旧国歌大観番号00008" n="8" type="旧国歌大観番号">
+                        <p style="text-indent:2em"><note xml:id="note0100116" place="margin-head"
+                              resp="#元暦校本" type="裏書" targetEnd="#note0100116e">裏書云<milestone
+                                 unit="br"/>前丘本宮<milestone unit="br"/>同地也<milestone unit="br"
+                              />
+                           斉明天皇</note><note xml:id="note0100115"
+                              resp="#元暦校本" type="割書">皇極天皇重祚也<milestone
+                                 unit="br"/>天<note xml:id="note0100114" resp="#元暦校本" type="上書き"
+                                 targetEnd="#note0100114e">智</note>智<anchor type="noteEnd"
+                                 xml:id="note0100114e"/> 天武間<milestone unit="br"/>人皇女母也</note>
+                           <note
+                              xml:id="note0100117" place="right" resp="#元暦校本" type="注" rend="red"
+                              targetEnd="#note0100117e">斉明ゝゝ</note>
+                           <note xml:id="note0100118"
+                              place="right" resp="#元暦校本" type="訓" rend="copper"
+                              targetEnd="#note0100118e">ノチノヲカモト</note>
+                           後<choice>
+                              <orig>罡</orig>
+                              <reg>岡</reg>
+                           </choice>本<anchor type="noteEnd" xml:id="note0100118e"/>宮<anchor
+                              type="noteEnd" xml:id="note0100116e"/><anchor type="noteEnd"
+                              xml:id="note0100117e"/>
+                           御宇天皇代 <note xml:id="note0100120"
+                              resp="#万葉集" type="割書"><note
+                                 xml:id="note0100119" place="right" resp="#元暦校本" type="訓"
+                                 targetEnd="#note0100119e">
+                           アメトヨタカライカシヒタラシヒメノ</note>天豊財重日足姫<anchor
+                                 type="noteEnd" xml:id="note0100119e"/>天皇<milestone unit="br"/>位後即後<choice>
+                                 <orig>罡</orig>
+                                 <reg>岡</reg>
+                              </choice>本宮</note></p>
+                        <p style="text-indent:4em" n="題詞00008" xml:id="題詞00008">額田王歌</p>
+                        <lg xml:id="manyo0008" type="短歌">
+                           <l xml:id="manyo0008_01"><lb/><note xml:id="note0100121" place="right"
+                                 resp="#元暦校本" type="訓" rend="copper" targetEnd="#note0100121e"
+                                 >ムマタツ</note><note xml:id="note0100122" place="left" resp="#元暦校本"
+                                 type="合点" subtype="訓" rend="red" targetEnd="#note0100122e"
+                                 >〽ヒキタツ</note>熟田津<anchor type="noteEnd" xml:id="note0100121e"
+                                 /><anchor type="noteEnd" xml:id="note0100122e"/>尓<choice>
+                                 <orig>舩</orig>
+                                 <reg>船</reg>
+                              </choice>乗世武登月待者潮毛可奈比治</l>
+                           <l xml:id="manyo0008_02"><lb/>今者許藝乞菜</l>
+                           <l xml:id="kunmanyo0008_01" corresp="#manyo0008_01"
+                              ><lb/><note xml:id="note0100123" place="right" resp="#元暦校本"
+                                 type="注" rend="red" targetEnd="#note0100123e"
+                                 >或本ムマタツ</note>なりたつ<anchor
+                                    type="noteEnd" xml:id="note0100123e"/>にふなのりせむとつきま
+                              <note xml:id="note0100124" place="right"
+                                 resp="#元暦校本" type="異訓" rend="red" targetEnd="#note0100124e"
+                                 >チテ</note>ては<anchor type="noteEnd" xml:id="note0100124e"/>し</l>
+                           <l xml:id="kunmanyo0008_02" corresp="#manyo0008_02"
+                                 ><lb/>ほもかなひぬいまはこきこ<note xml:id="note0100125" place="right"
+                                 resp="#元暦校本" type="異訓" rend="red" targetEnd="#note0100125e"
+                                 >サ</note>な<anchor type="noteEnd" xml:id="note0100125e"/></l>
+                        </lg>
+                        <pb facs="#一二丁裏"/>
+                        <p style="text-indent:4em">右<choice>
+                              <orig>检</orig>
+                              <reg>檢</reg>
+                           </choice>山上憶良大<note xml:id="note0100126" place="right" resp="#元暦校本"
+                              type="補読" rend="copper" targetEnd="#note0100126e">カ</note>夫<anchor
+                              type="noteEnd" xml:id="note0100126e"/>類聚歌林曰飛鳥<milestone unit="br"/><choice>
+                              <orig>罡</orig>
+                              <reg>岡</reg>
+                           </choice><note xml:id="note0100127" place="right" resp="#元暦校本" type="補読"
+                              rend="copper" targetEnd="#note0100127e">ノ</note>本<anchor
+                              type="noteEnd" xml:id="note0100127e"/>宮御宇天皇元年己丑九年丁<milestone unit="br"
+                              />酉十二月己巳朔壬午天皇大后幸于<milestone unit="br"/>伊<note xml:id="note0100128"
+                              place="right" resp="#元暦校本" type="補読" rend="copper"
+                              targetEnd="#note0100128e">ノ</note>豫<anchor type="noteEnd"
+                              xml:id="note0100128e"/><note xml:id="note0100129" place="right"
+                              resp="#元暦校本" type="補読" rend="red" targetEnd="#note0100129e"
+                              >ノ</note>湯<anchor type="noteEnd" xml:id="note0100129e"/>宮後<choice>
+                              <orig>罡</orig>
+                              <reg>岡</reg>
+                           </choice><note xml:id="note0100130" place="right" resp="#元暦校本" type="補読"
+                              rend="copper" targetEnd="#note0100130e">ノ</note>本<anchor
+                              type="noteEnd" xml:id="note0100130e"/><note xml:id="note0100131"
+                              place="right" resp="#元暦校本" type="補読" rend="copper"
+                              targetEnd="#note0100131e">ノ</note><note xml:id="note0100132"
+                              place="left" resp="#元暦校本" type="訓点" rend="red"
+                              targetEnd="#note0100132e">一</note>宮<anchor type="noteEnd"
+                              xml:id="note0100131e"/><anchor type="noteEnd" xml:id="note0100132e"/>
+                           馭宇天皇七<milestone unit="br"/>年辛酉春正月丁酉朔丙寅御<choice>
+                              <orig>舩</orig>
+                              <reg>船</reg>
+                           </choice><note xml:id="note0100135" place="left" resp="#元暦校本" type="訓点"
+                              rend="red" targetEnd="#note0100135e">―</note><subst>
+                              <add xml:id="note0100133" place="right" resp="#元暦校本" type="異文"
+                                 rend="red">西ニ</add>
+                              <del type="ミセケチ" xml:id="note0100134" rend="red" resp="#元暦校本"
+                                >悪</del>
+                           </subst><anchor type="noteEnd" xml:id="note0100135e"/>
+                           <milestone unit="br"/><note xml:id="note0100136" place="right"
+                              resp="#元暦校本" type="訓" rend="copper" targetEnd="#note0100136e"
+                              >ユキ</note><note xml:id="note0100137" place="right" resp="#元暦校本"
+                              type="送り" rend="red" targetEnd="#note0100137e">テ</note>征<anchor
+                              type="noteEnd" xml:id="note0100136e"/><anchor type="noteEnd"
+                              xml:id="note0100137e"/>
+                           始就于<note xml:id="note0100141" place="left"
+                              resp="#元暦校本" type="訓点" rend="copper" targetEnd="#note0100141e"
+                              >―</note><note xml:id="note0100142" place="left" resp="#元暦校本"
+                              type="訓点" rend="copper" targetEnd="#note0100142e">一</note>海<anchor
+                              type="noteEnd" xml:id="note0100142e"/><note xml:id="note0100138"
+                              place="right" resp="#元暦校本" type="補読" rend="copper"
+                              targetEnd="#note0100138e">ニ</note><note xml:id="note0100143"
+                              place="left" resp="#元暦校本" type="訓点" rend="red"
+                              targetEnd="#note0100143e">一</note>路<anchor type="noteEnd"
+                              xml:id="note0100138e"/><anchor type="noteEnd" xml:id="note0100141e"
+                              /><anchor type="noteEnd" xml:id="note0100143e"/>庚戌御<choice>
+                              <orig>舩</orig>
+                              <reg>船</reg>
+                           </choice><note xml:id="note0100139" place="right" resp="#元暦校本" type="注"
+                              rend="copper" targetEnd="#note0100139e">［ ］</note>泊<anchor
+                              type="noteEnd" xml:id="note0100139e"/>于伊<note xml:id="note0100140"
+                              place="right" resp="#元暦校本" type="補読" rend="red"
+                              targetEnd="#note0100140e">ノ</note>豫<anchor type="noteEnd"
+                              xml:id="note0100140e"/>
+                           <milestone unit="br"/><note xml:id="note0100144" place="right"
+                              resp="#元暦校本" type="異文" rend="copper" targetEnd="#note0100144e"
+                              >熟</note>熟<anchor type="noteEnd" xml:id="note0100144e"/>田<note
+                              xml:id="note0100145" place="right" resp="#元暦校本" type="補読"
+                              rend="copper" targetEnd="#note0100145e">ノ</note>津<anchor
+                              type="noteEnd" xml:id="note0100145e"/>石湯<note xml:id="note0100148"
+                              place="left" resp="#元暦校本" type="訓点" rend="red"
+                              targetEnd="#note0100148e">―</note><note xml:id="note0100149"
+                              place="left" resp="#元暦校本" type="訓点" rend="red"
+                              targetEnd="#note0100149e">一</note><note xml:id="note0100146"
+                              place="right" resp="#元暦校本" type="訓" rend="red"
+                              targetEnd="#note0100146e">カリミヤニ</note>行宮<anchor type="noteEnd"
+                              xml:id="note0100146e"/><anchor type="noteEnd" xml:id="note0100148e"
+                              /><anchor type="noteEnd" xml:id="note0100149e"/>天皇<note
+                              xml:id="note0100150" place="left" resp="#元暦校本" type="訓点" rend="red"
+                              targetEnd="#note0100150e">―</note><note xml:id="note0100147"
+                              place="right" resp="#元暦校本" type="訓" rend="red"
+                              targetEnd="#note0100147e">ミソハナス</note>御覧<anchor type="noteEnd"
+                              xml:id="note0100147e"/><anchor type="noteEnd" xml:id="note0100150e"
+                              /><note xml:id="note0100151" place="left" resp="#元暦校本" type="訓点"
+                              rend="red" targetEnd="#note0100151e">―</note>昔日<anchor type="noteEnd"
+                              xml:id="note0100151e"/><milestone unit="br"/>
+                           <pb facs="#一三丁表"/>猶<note xml:id="note0100152" place="right" resp="#元暦校本"
+                              type="訓" rend="red" targetEnd="#note0100152e">イケル</note>存<anchor
+                              type="noteEnd" xml:id="note0100152e"/>之<note xml:id="note0100153"
+                              place="right" resp="#元暦校本" type="補読" rend="red"
+                              targetEnd="#note0100153e">ヲ</note><note xml:id="note0100154"
+                              place="left" resp="#元暦校本" type="訓点" rend="red"
+                              targetEnd="#note0100154e">一</note>物<anchor type="noteEnd"
+                              xml:id="note0100153e"/><anchor type="noteEnd" xml:id="note0100154e"/>
+                           當時忽起感愛之<note xml:id="note0100155"
+                              place="left" resp="#元暦校本" type="訓点" rend="red"
+                              targetEnd="#note0100155e">一</note>情<anchor type="noteEnd"
+                              xml:id="note0100155e"/>所 <milestone unit="br"/>以因製<note
+                              xml:id="note0100156" resp="#元暦校本" type="訓点" rend="red"
+                              targetEnd="#note0100156e">―</note>歌<anchor type="noteEnd"
+                              xml:id="note0100156e"/>詠為之哀傷也即此歌 <milestone unit="br"/>者天皇御製<note
+                              xml:id="note0100157" place="right" resp="#元暦校本" type="注"
+                              targetEnd="#note0100157e">焉イ</note>焉<anchor type="noteEnd"
+                              xml:id="note0100157e"/>但<note xml:id="note0100158" place="margin-head"
+                              resp="#元暦校本" type="裏書" targetEnd="#note0100158e">
+                           裏書云<milestone unit="br"/>天武天皇夫人也<milestone
+                                 unit="br"/>十市王女母額田姫王是欤<milestone unit="br"/>或鑑王又鏡王</note>額田王<anchor
+                              type="noteEnd" xml:id="note0100158e"/>歌者別<milestone unit="br"
+                           />有四首 </p>
+                     </div>
+                  
+                     <div xml:id="旧国歌大観番号00009" n="9" type="旧国歌大観番号">
+                        <p style="text-indent:2em" n="題詞00009" xml:id="題詞00009">幸于<note
+                              xml:id="note0100159" place="right" resp="#元暦校本" type="補読" rend="red"
+                              targetEnd="#note0100159e">ノ</note>紀<anchor type="noteEnd"
+                              xml:id="note0100159e"/>温泉之時額田<note xml:id="note0100160" place="right"
+                              resp="#元暦校本" type="補読" rend="red" targetEnd="#note0100160e"
+                              >ノ</note>王<anchor type="noteEnd" xml:id="note0100160e"/>作歌</p>
+                        <lg xml:id="manyo0009" type="短歌">
+                           <l xml:id="manyo0009_01"><lb/><note xml:id="note0100163" place="right"
+                                 resp="#元暦校本" type="訓" rend="red" targetEnd="#note0100163e"
+                                 >ユフツキノ</note><note xml:id="note0100170" place="left" resp="#元暦校本"
+                                 type="訓点" rend="red" targetEnd="#note0100170e">―――</note><subst>
+                                 <add xml:id="note0100162" place="right" resp="#元暦校本" type="異文"
+                                    rend="copper">莫</add>
+                                 <del type="ミセケチ" xml:id="note0100169" rend="red" resp="#元暦校本"
+                                   >草</del>
+                              </subst>
+                              囂圓隣之<anchor type="noteEnd"
+                                 xml:id="note0100163e"/><anchor type="noteEnd" xml:id="note0100170e"
+                                 /><note xml:id="note0100164" place="right" resp="#元暦校本" type="訓"
+                                 rend="red" targetEnd="#note0100164e">アフキ</note><note
+                                 xml:id="note0100171" place="left" resp="#元暦校本" type="訓点" rend="red"
+                                 targetEnd="#note0100171e">―――</note>大相七兄<anchor type="noteEnd"
+                                 xml:id="note0100164e"/><anchor type="noteEnd" xml:id="note0100171e"
+                                 /><note xml:id="note0100165" place="right" resp="#元暦校本" type="訓"
+                                 rend="red" targetEnd="#note0100165e">キトヒシ</note>
+                              爪<note xml:id="note0100172"
+                                 place="left" resp="#元暦校本" type="画増" rend="red"
+                                 targetEnd="#note0100172e">（増画）「謁」</note>湯<anchor type="noteEnd"
+                                 xml:id="note0100172e"/>氣<anchor type="noteEnd"
+                                 xml:id="note0100165e"/><note xml:id="note0100166" place="right"
+                                 resp="#元暦校本" type="訓" rend="copper" targetEnd="#note0100166e"
+                                 >ワカセコカ</note>吾瀬<anchor type="noteEnd" xml:id="note0100166e"/><add
+                                 xml:id="note0100167" place="right" resp="#元暦校本" rend="red"
+                                 >◯子</add>之<note xml:id="note0100168" place="right" resp="#元暦校本"
+                                 type="訓" rend="copper" targetEnd="#note0100168e">イテタチシ</note>射<note
+                                 xml:id="note0100161" place="right" resp="#元暦校本" type="訓" rend="red"
+                                 targetEnd="#note0100161e">タヽセル</note>立<anchor type="noteEnd"
+                                 xml:id="note0100161e"/><anchor type="noteEnd" xml:id="note0100168e"
+                              /></l>
+                           <l xml:id="manyo0009_02"><lb/>為<note xml:id="note0100173" place="right"
+                                 resp="#元暦校本" type="訓" rend="copper" targetEnd="#note0100173e"
+                                 >
+                              ケムイツカシキカモ</note><note
+                                 xml:id="note0100177" place="left" resp="#元暦校本" type="訓" rend="red"
+                                 targetEnd="#note0100177e">カネイツカアハナム</note><note
+                                 xml:id="note0100174" place="right" resp="#元暦校本" type="異文"
+                                 rend="copper" targetEnd="#note0100174e">兼</note>兼<anchor
+                                 type="noteEnd" xml:id="note0100174e"/><note xml:id="note0100175"
+                                 place="right" resp="#元暦校本" type="異文" rend="red"
+                                 targetEnd="#note0100175e">五</note><note xml:id="note0100176"
+                                 place="left" resp="#元暦校本" type="画増" rend="red"
+                                 targetEnd="#note0100176e">（増画）「吾」</note>五<anchor type="noteEnd"
+                                 xml:id="note0100176e"/><anchor type="noteEnd" xml:id="note0100175e"
+                                 />可新何本<anchor type="noteEnd" xml:id="note0100173e"/><anchor
+                                 type="noteEnd" xml:id="note0100177e"/></l>
+                        </lg>
+                     </div>
+                  </div>
+                  <pb facs="#一三丁裏"/>
+                  <div corresp="#中皇命">
+                     <div xml:id="旧国歌大観番号00010" n="10" type="旧国歌大観番号">
+                        <p style="text-indent:2em" n="題詞00010" xml:id="題詞00010"><note
+                              xml:id="note0100178" place="right" resp="#元暦校本" type="注" rend="copper"
+                              targetEnd="#note0100178e">円或本</note>中<anchor type="noteEnd"
+                              xml:id="note0100178e"/>皇命徃于<add xml:id="note0100179" place="right"
+                              resp="#元暦校本" rend="red">◯紀</add>温泉之<note xml:id="note0100180"
+                              place="right" resp="#元暦校本" type="補読" rend="red"
+                              targetEnd="#note0100180e">ノ</note>時<anchor type="noteEnd"
+                              xml:id="note0100180e"/>御歌</p>
+                        <lg xml:id="manyo0010" type="短歌">
+                           <l xml:id="manyo0010_01"><lb/>君之齒母吾代毛所知哉<note xml:id="note0100182"
+                                 place="right" resp="#元暦校本" type="異文" targetEnd="#note0100182e"
+                                 >磐</note>
+                              盤<anchor type="noteEnd"
+                                 xml:id="note0100182e"/>代乃<choice>
+                                 <orig>罡</orig>
+                                 <reg>岡</reg>
+                              </choice>之<note xml:id="note0100183" place="right" resp="#元暦校本"
+                                 type="訓" rend="red" targetEnd="#note0100183e">カヤネ</note>草根<anchor
+                                 type="noteEnd" xml:id="note0100183e"/>乎</l>
+                           <l xml:id="manyo0010_02"><lb/>去来結手名</l>
+                           <l xml:id="kunmanyo0010_01" corresp="#manyo0010_01"><lb/>きみかよもわかよも<note
+                                 xml:id="note0100184" place="right" resp="#元暦校本" type="注" rend="red"
+                                 targetEnd="#note0100184e">或シレヤ</note>しらす<anchor type="noteEnd"
+                                 xml:id="note0100184e"/>いはしろの</l>
+                           <l xml:id="kunmanyo0010_02" corresp="#manyo0010_02"><lb/>をかのくさねを<note
+                                 xml:id="note0100185" place="right" resp="#元暦校本" type="注" rend="red"
+                                 targetEnd="#note0100185e">或ユキヽムスヒテム</note>いさむすひてな<anchor
+                                 type="noteEnd" xml:id="note0100185e"/></l>
+                        </lg>
+                     </div>
+                  
+                  <pb facs="#一四丁表"/>
+                  
+                     <div xml:id="旧国歌大観番号00011" n="11" type="旧国歌大観番号">
+                        <lg xml:id="manyo0011" type="短歌">
+                           <l xml:id="manyo0011_01"><lb/>吾<choice>
+                                 <orig>㔟</orig>
+                                 <reg>勢</reg>
+                              </choice>子波借廬作良湏<note xml:id="note0100186" place="right" resp="#元暦校本"
+                                 type="訓" rend="red" targetEnd="#note0100186e">カヤ</note>草<anchor
+                                 type="noteEnd" xml:id="note0100186e"/>無者小松<note
+                                 xml:id="note0100187" place="right" resp="#元暦校本" type="訓" rend="red"
+                                 targetEnd="#note0100187e">カシタ</note>下<anchor type="noteEnd"
+                                 xml:id="note0100187e"/>乃<note xml:id="note0100188" place="right"
+                                 resp="#元暦校本" type="訓" rend="red" targetEnd="#note0100188e"
+                                 >カヤ</note>
+                              草<anchor type="noteEnd"
+                                 xml:id="note0100188e"/></l>
+                           <l xml:id="manyo0011_02"><lb/>乎苅核</l>
+                           <l xml:id="kunmanyo0011_01" corresp="#manyo0011_01"><lb/>
+                              わかせこはかりほつくらすくさなくは<note xml:id="note0100189"
+                                 place="right" resp="#元暦校本" type="注" rend="red"
+                                 targetEnd="#note0100189e">或本コマツカシタ</note>こま<anchor type="noteEnd"
+                                 xml:id="note0100189e"/></l>
+                           <l xml:id="kunmanyo0011_02" corresp="#manyo0011_02"><lb/>つのもとのくさを<note
+                                 xml:id="note0100190" place="right" resp="#元暦校本" type="注" rend="red"
+                                 targetEnd="#note0100190e">或本カリサネ</note>かれかし<anchor type="noteEnd"
+                                 xml:id="note0100190e"/></l>
+                        </lg>
+                     </div>
+                  
+                     <div xml:id="旧国歌大観番号00012" n="12" type="旧国歌大観番号">
+                        <lg xml:id="manyo0012" type="短歌">
+                           <l xml:id="manyo0012_01"><lb/>吾欲之野<choice><orig>嶋</orig><reg>島</reg></choice>波見世追底深伎阿胡根能</l>
+                           <l xml:id="manyo0012_02"><lb/>浦乃珠曽不拾</l>
+                           <l xml:id="kunmanyo0012_01" corresp="#manyo0012_01"><lb/>
+                              わかおもひしのしまはみせつそこふか</l>
+                           <pb facs="#一四丁裏"/>
+                           <l xml:id="kunmanyo0012_02" corresp="#manyo0012_02"
+                              ><lb/>きあこねのうらのたまそひろはぬ</l>
+                        </lg>
+                        <p style="text-indent:3em">或<subst>
+                              <add xml:id="note0100191" place="right" resp="#元暦校本" rend="red"
+                                 >題</add>
+                              <add xml:id="note0100194" resp="#元暦校本" rend="red">◯</add>
+                              <add xml:id="note0100195" place="left" resp="#元暦校本" rend="red">頭</add>
+                           </subst>
+                           云<note xml:id="note0100193" place="right"
+                              resp="#元暦校本" type="訓" rend="red" targetEnd="#note0100193e"
+                                 >ワカヲモヒシシマ<del xml:id="note0100192" resp="#元暦校本" rend="red"
+                              >村</del>ハミツルヲ</note>吾欲子<choice><orig>嶋</orig><reg>島</reg></choice>羽見遠<anchor type="noteEnd"
+                              xml:id="note0100193e"/>
+                           <milestone unit="br"/>右<choice>
+                              <orig>检</orig>
+                              <reg>檢</reg>
+                           </choice>山上憶良大夫類聚歌林曰 <milestone unit="br"/>天皇御製歌<note
+                              xml:id="note0100196" resp="#万葉集" type="割書"
+                                 >云<milestone unit="br"/>々</note></p>
+                     </div></div>
+                  <div corresp="#天智天皇">
+                     <div xml:id="旧国歌大観番号00013" n="13" type="旧国歌大観番号">
+                        <p style="text-indent:3em" n="題詞00013" xml:id="題詞00013"><note
+                              xml:id="note0100198" place="margin-head" resp="#元暦校本" type="裏書"
+                              targetEnd="#note0100198e">裏書云<milestone unit="br"/>中大兄王</note><note
+                              xml:id="note0100197" resp="#元暦校本" type="割書">
+                           皇極天皇天豊財重日足姫四年六月譲位於軽太子以中大兄為<milestone
+                                 unit="br"/>皇太子天智<milestone unit="br"/>天皇是也</note>中大兄<anchor
+                              type="noteEnd" xml:id="note0100198e"/><note xml:id="note0100199"
+                              resp="#万葉集" type="割書">
+                           近江宮御宇天皇</note>三山歌<add xml:id="note0100200"
+                              resp="#元暦校本" type="補入" rend="red">二首</add></p>
+                        <ab xml:id="manyo0013" type="長歌">
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb"><note xml:id="note0100201" place="right" resp="#元暦校本"
+                                    type="訓" rend="red" targetEnd="#note0100201e">カク</note><choice>
+                                    <orig>髙</orig>
+                                    <reg>高</reg>
+                                 </choice><anchor type="noteEnd" xml:id="note0100201e"/>山波雲根火焳男<note
+                                    xml:id="note0100202" place="right" resp="#元暦校本" type="訓"
+                                    rend="red" targetEnd="#note0100202e">シト</note>志<choice><orig>䓁</orig><reg>等</reg></choice><anchor
+                                    type="noteEnd" xml:id="note0100202e"/>耳梨與相諍</seg>
+                              <lb/>
+                              <lb/>
+                              <seg xml:id="note0100203" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">タカヤマハウネヒヲヲ ミヽナシトアヒアラソヒ</seg>
+                           </seg>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">競伎神代従<note xml:id="note0100207" place="left"
+                                    resp="#元暦校本" type="訓点" rend="red" targetEnd="#note0100207e"
+                                    >―</note><note xml:id="note0100208" place="left" resp="#元暦校本"
+                                    type="訓" rend="red" targetEnd="#note0100208e"
+                                    >カヽル</note>如此<anchor type="noteEnd" xml:id="note0100207e"
+                                    /><anchor type="noteEnd" xml:id="note0100208e"/>尓有<note
+                                    xml:id="note0100204" place="right" resp="#元暦校本" type="訓"
+                                    rend="red" targetEnd="#note0100204e">ラシ</note>良之<anchor
+                                    type="noteEnd" xml:id="note0100204e"/>古昔<note
+                                    xml:id="note0100205" place="right" resp="#元暦校本" type="訓"
+                                    rend="red" targetEnd="#note0100205e">モシカニアリコ</note>母然尓有許<anchor
+                                    type="noteEnd" xml:id="note0100205e"/></seg>
+                              <lb/>
+                              <seg xml:id="note0100206" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">キカミヨヨリカクカヽルニアル イニシヘ</seg>
+                           </seg>
+                           <pb facs="#一五丁表"/>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb"><note xml:id="note0100209" place="right" resp="#元暦校本"
+                                    type="訓" rend="red" targetEnd="#note0100209e">ソ</note>曽<anchor
+                                    type="noteEnd" xml:id="note0100209e"/><note xml:id="note0100210"
+                                    place="right" resp="#元暦校本" type="異文" rend="red"
+                                    targetEnd="#note0100210e">盧</note>虚<anchor type="noteEnd"
+                                    xml:id="note0100210e"/>蝉毛嬬乎相<note xml:id="note0100212"
+                                    place="left" resp="#元暦校本" type="訓" rend="copper"
+                                    targetEnd="#note0100212e">キヲヒ</note>挌<anchor type="noteEnd"
+                                    xml:id="note0100212e"/>良思吉</seg>
+                              <lb/>
+                              <seg xml:id="note0100211" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt"> ウツセミモイモヲアヒウチヨシシヲモヒキ</seg>
+                           </seg>
+                        </ab>
+                     </div>
+                  
+                     <div xml:id="旧国歌大観番号00014" n="14" type="旧国歌大観番号">
+                        <p style="text-indent:3em" n="題詞00014" xml:id="題詞00014">反歌</p>
+                        <lg xml:id="manyo0014" type="短歌">
+                           <l xml:id="manyo0014_01"><lb/><choice>
+                                 <orig>髙</orig>
+                                 <reg>高</reg>
+                              </choice>山<note xml:id="note0100213" place="right" resp="#元暦校本"
+                                 type="異文" rend="red" targetEnd="#note0100213e">与</note>與<anchor
+                                 type="noteEnd" xml:id="note0100213e"/>耳梨山与相之時立見尓来之伊奈美</l>
+                           <l xml:id="manyo0014_02"><lb/><choice>
+                                 <orig>國</orig>
+                                 <reg>国</reg>
+                              </choice>波良</l>
+                           <l xml:id="kunmanyo0014_01" corresp="#manyo0014_01"><lb/>
+                              たかやまとみゝなしやまとあひしときた</l>
+                           <pb facs="#一五丁裏"/>
+                           <l xml:id="kunmanyo0014_02" corresp="#manyo0014_02"><lb/><note
+                                 xml:id="note0100214" place="right" resp="#元暦校本" type="注" rend="red"
+                                 targetEnd="#note0100214e">或本タチテミニコシ</note>ちみ<note
+                                 xml:id="note0100216" place="left" resp="#元暦校本" type="異訓" rend="red"
+                                 targetEnd="#note0100216e">ニ</note>つ<anchor type="noteEnd"
+                                 xml:id="note0100216e"/>きにし<anchor type="noteEnd"
+                                 xml:id="note0100214e"/>いな<note xml:id="note0100215" place="right"
+                                 resp="#元暦校本" type="注" rend="red" targetEnd="#note0100215e"
+                                 >或本ミ</note>
+                              ひ<anchor type="noteEnd"
+                                 xml:id="note0100215e"/>くにはら</l>
+                        </lg>
+                     </div>
+                  
+                     <div xml:id="旧国歌大観番号00015" n="15" type="旧国歌大観番号">
+                        <lg xml:id="manyo0015" type="短歌">
+                           <l xml:id="manyo0015_01"><lb/><note xml:id="note0100219"
+                                 place="margin-head" resp="#元暦校本" type="裏書"
+                                 targetEnd="#note0100219e">裏書云<milestone unit="br"/>豊旗雲ト云事□釈
+                              資業三位ハ能因法師カクナム釈シ侍リケル<milestone
+                                    unit="br"/>
+                              ワタツミトハ海ヲイフイリヒノ山ノトホキトコロナトニハウミニイルヤウニミユルオリソラニタナヒク<milestone
+                                    unit="br"/>
+                              イロアカクテ<milestone unit="br"/>
+                              サヽケタルハタニヽタレハウミノヒロキウヘニミユレハトヨハタクモナトヨムナリイリヒトキニハ月モアカク<milestone
+                                    unit="br"/>
+                              ラセハコヨヒノ月<subst>
+                                    <del type="上書き" xml:id="note0100218_01" resp="#元暦校本">ス</del>
+                                    <add type="訂正" xml:id="note0100218_02" resp="#元暦校本">ミ</add>
+                                 </subst>
+                              アカシトヨムナリ</note>渡律海乃<note
+                                 xml:id="note0100217" place="right" resp="#元暦校本" type="訓"
+                                 targetEnd="#note0100217e">タヨハタクモ</note><note xml:id="note0100220"
+                                 place="margin-head" resp="#元暦校本" type="注" rend="red"
+                                 targetEnd="#note0100220e">古語海雲也</note><note xml:id="note0100224"
+                                 place="margin-head" resp="#元暦校本" type="注" rend="red"
+                                 targetEnd="#note0100224e">當夕日雲<milestone unit="br"/>赤色也<milestone
+                                    unit="br"/>似播也入日<milestone unit="br"/>のよく<milestone unit="br"
+                                 />
+                              ある時八月云々光清也</note>豊旗雲<anchor
+                                 type="noteEnd" xml:id="note0100217e"/><anchor type="noteEnd"
+                                 xml:id="note0100219e"/><anchor type="noteEnd" xml:id="note0100220e"
+                                 /><anchor type="noteEnd" xml:id="note0100224e"/>尓伊理比祢之今夜乃月</l>
+                           <l xml:id="manyo0015_02"><lb/>夜清明己曽</l>
+                           <note xml:id="note0100221" resp="#元暦校本" type="注" rend="red"
+                              targetEnd="#note0100221e">中大兄ゝゝ</note><anchor type="noteEnd" xml:id="note0100221e"/>
+                           <l xml:id="kunmanyo0015_01" corresp="#manyo0015_01"><lb/>わたつ<add
+                                 xml:id="note0100222" place="right" resp="#元暦校本" type="補入">◯ウ</add>
+                              みのとよはたくもにいりひ<note
+                                 xml:id="note0100223" place="right" resp="#元暦校本" type="注" rend="red"
+                                 targetEnd="#note0100223e">或本ネ</note>さ<anchor type="noteEnd"
+                                 xml:id="note0100223e"/>し</l>
+                           <l xml:id="kunmanyo0015_02" corresp="#manyo0015_02"><lb/>こよひの<note
+                                 xml:id="note0100225" place="right" resp="#元暦校本" type="注" rend="red"
+                                 targetEnd="#note0100225e">或本ツクヨ</note>つきよ<anchor type="noteEnd"
+                                 xml:id="note0100225e"/>すみあかくこそ</l>
+                           <note xml:id="note0100226" place="left" resp="#元暦校本" type="裏書"
+                              target="#notestart0100226e" targetEnd="#noteEnd0100226e">
+                              号葛城皇子又名中大兄王後為天智天皇母皇后寶皇女今称皇極天皇是也</note>
+                        </lg>
+                        <p style="text-indent:5em">右一首歌今案不似反歌也但舊本 <milestone unit="br"
+                              />以此歌載於反哥故今猶載<note xml:id="note0100227" place="right" resp="#元暦校本"
+                              type="異文" rend="red" targetEnd="#note0100227e">如</note>此<anchor
+                              type="noteEnd" xml:id="note0100227e"/>次<note xml:id="note0100228"
+                              place="right" resp="#元暦校本" type="異文" rend="red"
+                              targetEnd="#note0100228e">立</note>亦<anchor type="noteEnd"
+                              xml:id="note0100228e"/>
+                           <pb facs="#一六丁表"/>
+                           <milestone unit="br"/>紀曰<anchor type="noteBeginning"
+                              xml:id="notestart0100226e"/>
+                           天豊財重<subst>
+                              <add xml:id="note0100229" resp="#元暦校本" type="ミセケチ" rend="right"
+                                 rendition="#cc">日</add>
+                              <del xml:id="note0100232" resp="#元暦校本" type="ミセケチ" rend="red"
+                                 rendition="#cr">日</del>
+                           </subst>足姫天皇<anchor type="noteEnd" xml:id="noteEnd0100226e"/>
+                           <note xml:id="note0100231" place="right" resp="#元暦校本" type="訂正"
+                              rend="copper" targetEnd="#note0100231e">光</note>
+                           <note xml:id="note0100230" place="right" resp="#元暦校本" type="合点"
+                              targetEnd="#note0100230e">〽</note>先<anchor type="noteEnd"
+                              xml:id="note0100230e"/><anchor type="noteEnd" xml:id="note0100231e"/>
+                              
+                           四年乙 <milestone unit="br"/>巳立<add
+                              xml:id="note0100233" place="right" resp="#元暦校本" type="補入" rend="red"
+                              >◯為</add>天皇為太子</p>
+                     </div>
+                  </div>
+                  <div corresp="#額田王">
+                     <div xml:id="旧国歌大観番号00016" n="16" type="旧国歌大観番号">
+                        <p style="text-indent:3em"><note xml:id="note0100234" place="margin-head"
+                              resp="#元暦校本" type="裏書" targetEnd="#note0100234e">裏書云<milestone
+                                 unit="br"/>内大臣大織冠藤原鎌足朝臣 天皇八年十月授大織冠於内大臣賜姓藤原</note><note
+                              xml:id="note0100238" place="left" resp="#元暦校本" type="注"
+                              targetEnd="#note0100238e">志賀郡大津是也</note><note xml:id="note0100235"
+                              place="right" resp="#元暦校本" type="訓" rend="copper"
+                              targetEnd="#note0100235e">アフミヲホツ</note>近江大津<anchor type="noteEnd"
+                              xml:id="note0100235e"/>宮<anchor type="noteEnd" xml:id="note0100234e"
+                              /><anchor type="noteEnd" xml:id="note0100238e"/>御宇天皇代<note
+                              xml:id="note0100237" resp="#万葉集" type="割書"
+                                 ><note xml:id="note0100236" place="right" resp="#元暦校本" type="訓"
+                                 rend="red" targetEnd="#note0100236e"
+                                 >アメミコトヒラケワケノ</note>天命開別天皇<anchor type="noteEnd"
+                                 xml:id="note0100236e"/><milestone unit="br"/>
+                           謚曰天智天皇</note></p>
+                        <p style="text-indent:4em" n="題詞00016" xml:id="題詞00016">天皇詔内大臣藤原朝臣<note
+                              xml:id="note0100239" place="right" resp="#元暦校本" type="訓" rend="copper"
+                              targetEnd="#note0100239e">クラノ</note>競<anchor type="noteEnd"
+                              xml:id="note0100239e"/><add xml:id="note0100240" place="right"
+                              resp="#元暦校本" type="補入" rend="red">憐</add>春<note xml:id="note0100241"
+                              place="right" resp="#元暦校本" type="補読" rend="copper"
+                              targetEnd="#note0100241e">ノ</note>山<anchor type="noteEnd"
+                              xml:id="note0100241e"/><note xml:id="note0100242" place="right"
+                              resp="#元暦校本" type="合点" subtype="訂正" targetEnd="#note0100242e"
+                              >〽<choice><orig>萬</orig><reg>万</reg></choice></note>
+                           葛<anchor type="noteEnd"
+                              xml:id="note0100242e"/>花之<milestone unit="br"/>
+                           艶秋山千葉之彩時<milestone unit="br"/>額田王以歌判之歌</p>
+                        <ab xml:id="manyo0016" type="長歌">
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">冬木成春<note xml:id="note0100243" place="right"
+                                    resp="#元暦校本" type="訓" rend="red" targetEnd="#note0100243e"
+                                    >サレ</note>
+                                 去<anchor type="noteEnd"
+                                    xml:id="note0100243e"/>来者不喧有之鳥毛来鳴奴不開</seg>
+                              <lb/>
+                              <seg xml:id="note0100244" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">フユコナリハル クレハナカサリシトリモキナキヌサカ</seg>
+                           </seg>
+                           <pb facs="#一六丁裏"/>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">有之花毛佐家礼杼山之茂入而毛不取草</seg>
+                              <lb/>
+                              <seg xml:id="note0100245" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">サリシハナモサケレトヤマヲシケミイリテモトラスクサ</seg>
+                           </seg>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">深執手母<note xml:id="note0100246" place="right"
+                                    resp="#元暦校本" type="訓" rend="red" targetEnd="#note0100246e"
+                                    >スミエ</note>
+                                 不見<anchor type="noteEnd"
+                                    xml:id="note0100246e"/>秋山乃木葉乎見而者黄葉乎</seg>
+                              <lb/>
+                              <seg xml:id="note0100247" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">フカシトリテモ スアキヤマノコノハヲミテハモミチヲ</seg>
+                           </seg>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">婆取而曽思努布青乎者置而曽歎久曽<add xml:id="note0100249" place="right"
+                                    resp="#元暦校本" type="補入" rend="red">◯祢</add>許</seg>
+                              <lb/>
+                              <seg xml:id="note0100248" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">ハトリテソシヌフアヲキヲハヲキテソナケクソコ</seg>
+                           </seg>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">之恨之秋<add xml:id="note0100251" place="left" resp="#元暦校本"
+                                    type="補入" rend="copper">山</add>乃吾者</seg>
+                              <lb/>
+                              <seg xml:id="note0100250" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">ノウラミアキヤマノワレハ</seg>
+                           </seg>
+                        </ab>
+                     </div>
+                  
+                     <div xml:id="旧国歌大観番号00017" n="17" type="旧国歌大観番号">
+                        <p style="text-indent:3em" n="題詞00017" xml:id="題詞00017">額田王下近江<choice><orig>國</orig><reg>国</reg></choice>時作歌井戸王即和歌</p>
+                        <pb facs="#一七丁表"/>
+                        <ab xml:id="manyo0017" type="長歌">
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">味酒<note xml:id="note0100253" place="left" resp="#元暦校本"
+                                    type="訓" rend="copper" targetEnd="#note0100253e"
+                                    >ミツ</note>三<anchor type="noteEnd" xml:id="note0100253e"
+                                    />輪乃山青丹吉<note xml:id="note0100254" place="left" resp="#元暦校本"
+                                    type="異訓" rend="copper" targetEnd="#note0100254e"
+                                    >ナラシノヤマノ</note>奈良能山乃<anchor type="noteEnd" xml:id="note0100254e"
+                                 />山際伊隠</seg>
+                              <lb/>
+                              <seg xml:id="note0100252" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">ムマサケノワノヤマハアホニヨシナラノミヤマノヤマキハニイコモル</seg>
+                           </seg>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb"><choice><orig>萬</orig><reg>万</reg></choice>代道隈伊積流<choice><orig>萬</orig><reg>万</reg></choice>代尓委曲毛見菅管行武</seg>
+                              <lb/>
+                              <seg xml:id="note0100255" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">マテニミチノクマイツモルマテニクハシクモミツヽユカム</seg>
+                           </seg>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">雄數々毛<note xml:id="note0100259" place="left"
+                                    resp="#元暦校本" type="異訓" targetEnd="#note0100259e">ミサケムヤマ</note>見<subst>
+                                    <add xml:id="note0100257" place="right" resp="#元暦校本" type="異体確認"
+                                       rend="red">放</add>
+                                    <del xml:id="note0100258" resp="#元暦校本" type="ミセケチ" rend="red"
+                                       >放</del>
+                                 </subst>
+                                 武八<choice><orig>萬</orig><reg>万</reg></choice><anchor type="noteEnd"
+                                    xml:id="note0100259e"/>雄情無雲乃隠障倍之也</seg>
+                              <lb/>
+                              <seg xml:id="note0100256" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">ヲシハ／＼モミテハナタムヤヨロツヲコヽロナキクモノカクサフヘシヤ</seg>
+                           </seg>
+                        </ab>
+                     </div>
+                  
+                     <div xml:id="旧国歌大観番号00018" n="18" type="旧国歌大観番号">
+                        <p style="text-indent:3em" n="題詞00018" xml:id="題詞00018">反歌</p>
+                        <lg xml:id="manyo0018" type="短歌">
+                           <l xml:id="manyo0018_01"><lb/>三輪山乎然毛隠賀雲谷裳情有南畝可苦</l>
+                           <pb facs="#一七丁裏"/>
+                           <l xml:id="manyo0018_02"><lb/>佐布倍思哉</l>
+                           <l xml:id="kunmanyo0018_01" corresp="#manyo0018_01"><lb/>
+                              みわやまをしかもかくすかくもたにも</l>
+                           <l xml:id="kunmanyo0018_02" corresp="#manyo0018_02"
+                              ><lb/>こゝろあらなんかくさふへしや</l>
+                        </lg>
+                        <p style="text-indent:4em">右二<note xml:id="note0100260" place="right"
+                              resp="#元暦校本" type="補読" rend="copper" targetEnd="#note0100260e"
+                              >ノ</note>
+                           首<anchor type="noteEnd"
+                              xml:id="note0100260e"/>歌山上憶良大夫類聚歌林 <milestone unit="br"/>曰<note
+                              xml:id="note0100261" place="right" resp="#元暦校本" type="訓" rend="copper"
+                              targetEnd="#note0100261e">ミヤコウツリ</note>遷都<anchor type="noteEnd"
+                              xml:id="note0100261e"/>近江<choice><orig>國</orig><reg>国</reg></choice>時御覧三輪山御 <milestone unit="br"/>
+                           歌焉日本<del xml:id="note0100262" resp="#元暦校本"
+                              type="ミセケチ" rend="copper">書</del>紀曰六年丙寅春三 <milestone unit="br"
+                           />月辛酉朔己卯遷都于近江</p>
+                     </div>
+                  </div>
+                  <pb facs="#一八丁表"/>
+                  <div corresp="#井戸王">
+                     <div xml:id="旧国歌大観番号00019" n="19" type="旧国歌大観番号">
+                        <lg xml:id="manyo0019" type="短歌">
+                           <l xml:id="manyo0019_01"><lb/>
+                              <note xml:id="note0100269" place="left" resp="#元暦校本" type="訓"
+                                 rend="red" targetEnd="#note0100269e">ソマカタノハヤスハシメノサノハキノコロモニキナシメニ
+                                 <note xml:id="note0100268"
+                                    place="right" resp="#元暦校本" type="異訓" rend="copper"
+                                    targetEnd="#note0100268e">ツ</note>
+                              ム<anchor type="noteEnd"
+                                    xml:id="note0100268e"/>クワカセ</note>
+                              <note xml:id="note0100265" place="left" resp="#元暦校本" type="訓"
+                                 rend="copper" targetEnd="#note0100265e">ウミヲ</note>
+                              <note xml:id="note0100263" place="right" rend="copper" resp="#元暦校本"
+                                 type="傍訓" targetEnd="#note0100263e"
+                                 >ミヲカタノハヤシハシメノサノハキノキヌニツクナルメニツ</note>
+                              綜麻<anchor type="noteEnd"
+                                 xml:id="note0100265e"/>
+                              形乃林始乃狭野㮈能衣尓著<note
+                                 xml:id="note0100266" place="left" resp="#元暦校本" type="訓"
+                                 rend="copper" targetEnd="#note0100266e">ナリ</note>
+                              成<anchor type="noteEnd"
+                                 xml:id="note0100266e"/>
+                              <choice>
+                                 <sic>自</sic>
+                                 <corr resp="乾善彦 #監修001" xml:id="note0200264">目</corr>
+                              </choice>
+                              尓都<anchor type="noteEnd"
+                                 xml:id="note0100263e"/></l>
+                           <lb/>
+                           <l xml:id="manyo0019_02"><lb/><note xml:id="note0100267" place="right"
+                                 rend="copper" resp="#元暦校本" type="傍訓" targetEnd="#note0100267e"
+                                 >クワカセ</note>久和我<choice>
+                                 <orig>㔟</orig>
+                                 <reg>勢</reg>
+                                 </choice>
+                              <anchor type="noteEnd" xml:id="note0100267e"/><anchor type="noteEnd" xml:id="note0100269e"/></l>
+                           
+                        </lg>
+                        <p style="text-indent:4em">右一<note xml:id="note0100270" place="right"
+                              resp="#元暦校本" type="補読" rend="copper" targetEnd="#note0100270e"
+                              >ノ</note>
+                           首<anchor type="noteEnd"
+                              xml:id="note0100270e"/>歌今案不似<note xml:id="note0100271" place="right"
+                              resp="#元暦校本" type="補読" rend="copper" targetEnd="#note0100271e"
+                              >ノ</note>和<anchor type="noteEnd" xml:id="note0100271e"/>歌但舊本<note
+                              xml:id="note0100272" place="right" resp="#元暦校本" type="注" rend="copper"
+                              targetEnd="#note0100272e">裁或本作</note>載<anchor type="noteEnd"
+                              xml:id="note0100272e"/>
+                           <milestone unit="br"/>于此次故以猶焉<note xml:id="note0100273" place="right"
+                              resp="#元暦校本" type="注" rend="copper" targetEnd="#note0100273e"
+                              >載或本作</note>載<anchor type="noteEnd" xml:id="note0100273e"/></p>
+                     </div>
+                  </div>
+                  <div corresp="#額田王">
+                     <div xml:id="旧国歌大観番号00020" n="20" type="旧国歌大観番号">
+                        <p style="text-indent:3em" n="題詞00020" xml:id="題詞00020">天皇遊<note
+                              xml:id="note0100274" place="right" resp="#元暦校本" type="異文" rend="red"
+                              targetEnd="#note0100274e">獵</note><note xml:id="note0100275"
+                              place="right" resp="#元暦校本" type="補読" rend="copper"
+                              targetEnd="#note0100275e">シタテシ</note>獦<anchor type="noteEnd"
+                              xml:id="note0100274e"/><anchor type="noteEnd" xml:id="note0100275e"
+                              /><note xml:id="note0100276" place="right" resp="#元暦校本" type="訓"
+                              rend="copper" targetEnd="#note0100276e">カマフ</note>蒲生<anchor
+                              type="noteEnd" xml:id="note0100276e"/>野時額田王作歌</p>
+                        <pb facs="#一八丁裏"/>
+                        <lg xml:id="manyo0020" type="短歌">
+                           <l xml:id="manyo0020_01"><lb/>茜草指武良前野逝標野行野守者不見</l>
+                           <l xml:id="manyo0020_02"><lb/>哉君之袖布流</l>
+                           <l xml:id="kunmanyo0020_01" corresp="#manyo0020_01"><lb/>
+                              あかねさすむらさきのゆきしめのゆき</l>
+                           <l xml:id="kunmanyo0020_02" corresp="#manyo0020_02"
+                              ><lb/>のもりはみすやきみかそてふる</l>
+                        </lg>
+                     </div>
+                  </div>
+                  <div corresp="#天武天皇">
+                     <div xml:id="旧国歌大観番号00021" n="21" type="旧国歌大観番号">
+                        <p style="text-indent:3em" n="題詞00021" xml:id="題詞00021"><note
+                              xml:id="note0100277" place="margin-head" resp="#元暦校本" type="裏書"
+                              targetEnd="#note0100277e">裏云<milestone unit="br"/>皇太子答哥天武天皇<milestone
+                                 unit="br"/>紫草のにほへるいも<milestone unit="br"/>をにくゝあらは人<milestone
+                                 unit="br"/>まつゆへにわかこひめやも 本哥在面但振袖恋也 みかと野外嫁卑女<milestone unit="br"
+                              />あかねさしは帝をひにそゑたてまつる
+                           むらさきの行は行幸也</note>皇太子<anchor type="noteEnd"
+                              xml:id="note0100277e"/>答御歌<note xml:id="note0100278" resp="#万葉集"
+                              type="割書">
+                           明日香宮御宇天皇<milestone unit="br"
+                           />謚曰天武天皇</note></p>
+                        <lg xml:id="manyo0021" type="短歌">
+                           <l xml:id="manyo0021_01"><lb/>紫草能尓保敝類妹乎尓苦久有者人嬬故</l>
+                           <l xml:id="manyo0021_02"><lb/>尓吾戀目八方</l>
+                           <pb facs="#一九丁表"/>
+                           <l xml:id="kunmanyo0021_01" corresp="#manyo0021_01"><lb/>むらさきの<subst>
+                                 <add xml:id="note0100279" place="right" resp="#元暦校本" type="異訓"
+                                    rend="red">ニ</add>
+                                 <del xml:id="note0100280" resp="#元暦校本" type="ミセケチ" rend="red"
+                                    >ゝ</del>
+                              </subst>
+                              ほへるいもかにくゝあらは</l>
+                           <l xml:id="kunmanyo0021_02" corresp="#manyo0021_02"
+                                 ><lb/>ひとつまゆゑにわかこひめや<note xml:id="note0100281" place="right"
+                                 resp="#元暦校本" type="異訓" rend="copper" targetEnd="#note0100281e"
+                                 >ハ</note>も<anchor type="noteEnd" xml:id="note0100281e"/></l>
+                        </lg>
+                        <p style="text-indent:4em">紀曰天皇七年丁卯夏五月五日<note xml:id="note0100282"
+                              place="right" resp="#元暦校本" type="訓" rend="copper"
+                              targetEnd="#note0100282e">キヨク</note><note xml:id="note0100283"
+                              place="right" resp="#元暦校本" type="訓点" rend="copper"
+                              targetEnd="#note0100283e">―</note>縦獦<anchor type="noteEnd"
+                              xml:id="note0100282e"/><anchor type="noteEnd" xml:id="note0100283e"/>
+                           <milestone unit="br"/>於蒲生野于時<note xml:id="note0100284" place="right"
+                              resp="#元暦校本" type="異文" rend="copper" targetEnd="#note0100284e"
+                              >天</note>
+                           大<anchor type="noteEnd"
+                              xml:id="note0100284e"/><note xml:id="note0100285" place="right"
+                              resp="#元暦校本" type="補読" rend="copper" targetEnd="#note0100285e"
+                              >ノ</note>皇<anchor type="noteEnd" xml:id="note0100285e"/><note
+                              xml:id="note0100286" place="right" resp="#元暦校本" type="補読"
+                              rend="copper" targetEnd="#note0100286e">ノ</note>弟<anchor
+                              type="noteEnd" xml:id="note0100286e"/>諸王内臣及 <milestone unit="br"
+                              /><note xml:id="note0100287" place="right" resp="#元暦校本" type="注"
+                              rend="copper" targetEnd="#note0100287e">諸或本作</note>群<anchor
+                              type="noteEnd" xml:id="note0100287e"/>臣<add xml:id="note0100288"
+                              resp="#元暦校本" type="補入" rend="red">◯</add>悉皆従<note xml:id="note0100289"
+                              place="right" resp="#元暦校本" type="異文" rend="red"
+                              targetEnd="#note0100289e">焉</note>焉<anchor type="noteEnd"
+                              xml:id="note0100289e"/></p>
+                     </div>
+                  </div>
+                  <div corresp="#吹黄刀自">
+                     <div xml:id="旧国歌大観番号00022" n="22" type="旧国歌大観番号">
+                        <p style="text-indent:3em"><note xml:id="note0100290" place="margin-head"
+                              resp="#元暦校本" type="注" rend="copper" targetEnd="#note0100290e"
+                                 >天<milestone unit="br"/>武</note><note xml:id="note0100291"
+                              place="right" resp="#元暦校本" type="訓" rend="copper"
+                              targetEnd="#note0100291e">アスカ</note>
+                           明日香<anchor type="noteEnd"
+                              xml:id="note0100291e"/><note xml:id="note0100292" place="right"
+                              resp="#元暦校本" type="訓" rend="copper" targetEnd="#note0100292e"
+                              >キヨミハラ</note>清<add xml:id="note0100293" place="right" resp="#元暦校本"
+                              type="補入" rend="red">◯御</add>原<anchor type="noteEnd"
+                              xml:id="note0100292e"/>宮<anchor type="noteEnd" xml:id="note0100290e"
+                              /><note xml:id="note0100294" place="right" resp="#元暦校本" type="注"
+                              rend="copper" targetEnd="#note0100294e">御宇</note>
+                           天武<anchor type="noteEnd"
+                              xml:id="note0100294e"/>皇代<note xml:id="note0100297" resp="#万葉集"
+                              type="割書"><note xml:id="note0100295"
+                                 place="left" resp="#元暦校本" type="訓" rend="copper"
+                                 targetEnd="#note0100295e">アマヌノナカハラオキマフト</note>天渟中原流真人<anchor
+                                 type="noteEnd" xml:id="note0100295e"/><del xml:id="note0100296"
+                                 resp="#元暦校本" type="ミセケチ" rend="red">天</del>
+                              <milestone unit="br"/><del xml:id="note0100298" rend="red"
+                                 resp="#元暦校本" type="ミセケチ">皇</del>謚曰天武天皇</note></p>
+                        <p style="text-indent:4em" n="題詞00022" xml:id="題詞00022"><note
+                              xml:id="note0100299" place="right" resp="#元暦校本" type="訓" rend="copper"
+                              targetEnd="#note0100299e">トホチノ</note>十市<anchor type="noteEnd"
+                              xml:id="note0100299e"/>皇女参赴於伊<choice><orig>㔟</orig><reg>勢</reg></choice>神宮時見波<note xml:id="note0100300"
+                              place="right" resp="#元暦校本" type="補読" rend="copper"
+                              targetEnd="#note0100300e">ノ</note>多<anchor type="noteEnd"
+                              xml:id="note0100300e"/><milestone unit="br"/>
+                           <pb facs="#一九丁裏"/> 横<del xml:id="note0100301" resp="#元暦校本" type="ミセケチ"
+                              rend="red">
+                           山</del>巖吹<note xml:id="note0100302"
+                              place="right" resp="#元暦校本" type="補読" rend="copper"
+                              targetEnd="#note0100302e">ノ</note>芡<anchor type="noteEnd"
+                              xml:id="note0100302e"/><note xml:id="note0100303" place="right"
+                              resp="#元暦校本" type="訓" rend="copper" targetEnd="#note0100303e"
+                              >トシカ</note>刀自<anchor type="noteEnd" xml:id="note0100303e"/>作歌</p>
+                        <lg xml:id="manyo0022" type="短歌">
+                           <l xml:id="manyo0022_01"><lb/><note xml:id="note0100305" place="left"
+                                 resp="#元暦校本" type="訓" rend="red" targetEnd="#note0100305e">
+                              カハカミノユツハノムラニクサムサスツネニモカモナトコヲトメニテ</note>河上乃湯都盤村二草武左受常丹毛䔬名</l>
+                           <l xml:id="manyo0022_02"><lb/>常<add xml:id="note0100304" resp="#元暦校本"
+                                 type="補入" rend="red">處女煑手</add><anchor type="noteEnd"
+                                 xml:id="note0100305e"/></l>
+                           <l style="text-indent:3em" xml:id="manyo0022_03"><lb/><note
+                                 xml:id="note0100306" resp="#元暦校本" type="注" rend="red"
+                                 targetEnd="#note0100306e">◯</note>處女煑手<anchor type="noteEnd"
+                                 xml:id="note0100306e"/></l>
+                        </lg>
+                        <p style="text-indent:4em"><note xml:id="note0100310" place="margin-head"
+                              resp="#元暦校本" type="裏書" targetEnd="#note0100310e">裏云<milestone
+                                 unit="br"/>吹芡刀自<milestone unit="br"/>第四巻有詠<del xml:id="note0100309"
+                                 resp="#元暦校本" type="抹消">哥</del> 歌二首<milestone unit="br"/><note
+                                 xml:id="note0100308" place="margin-head" resp="#元暦校本" type="訓"
+                                 targetEnd="#note0100308e">マノヽウラノトヨ<add xml:id="note0100307"
+                                    resp="#元暦校本" type="補入">◯</add>
+                           ノツキハシコヽロタモオモフヤイモカイメニシミユル<milestone
+                                    unit="br"/>カハカミノイツモノハナノイツモ／＼<milestone unit="br"
+                                    />キマセワカセコ<milestone unit="br"/>トキマタメヤモ</note>
+                           真野之浦乃与騰乃継橋情田毛思哉妹之伊目尓之所見<milestone
+                                 unit="br"/>河上乃伊都藻之花乃何時／＼<milestone unit="br"/>来益我背子<milestone
+                                 unit="br"/>時自異八方</note><anchor type="noteEnd" xml:id="note0100308e"
+                              />吹<note xml:id="note0100311" place="right" resp="#元暦校本" type="補読"
+                              rend="copper" targetEnd="#note0100311e">ノ</note>芡<anchor
+                              type="noteEnd" xml:id="note0100311e"/>刀<anchor type="noteEnd"
+                              xml:id="note0100310e"/>
+                           自未詳也但紀曰天皇四年乙 
+                           
+                           <pb facs="#二〇丁表"/>
+                           
+                           <milestone unit="br"/>亥春二月乙亥朔丁亥<note xml:id="note0100312" place="left"
+                              resp="#元暦校本" type="裏書" targetEnd="#note0100312e">裏云阿閇皇女是<milestone
+                                 unit="br"/>天<milestone unit="br"/>十市皇女天武天皇<milestone unit="br"/>第五女
+                           母額田姫王也<milestone unit="br"/>大和<choice>
+                                 <orig>國</orig>
+                                 <reg>国</reg>
+                              </choice><choice>
+                                 <orig>髙</orig>
+                                 <reg>高</reg>
+                              </choice>市郡今<choice><orig>嶋</orig><reg>島</reg></choice>宮正東北是也<milestone unit="br"
+                              />号大海皇子後為天武天皇</note>十市皇女阿閇 \<milestone unit="br"/>皇女<anchor
+                              type="noteEnd" xml:id="note0100312e"/>參赴於伊<choice>
+                              <orig>㔟</orig>
+                              <reg>勢</reg>
+                           </choice>神宮</p>
+                     </div>
+                  </div>
+                  <div corresp="#人">
+                     <div xml:id="旧国歌大観番号00023" n="23" type="旧国歌大観番号">
+                        <p style="text-indent:3em" n="題詞00023" xml:id="題詞00023"><note
+                              xml:id="note0100313" place="right" resp="#元暦校本" type="補読"
+                              rend="copper" targetEnd="#note0100313e">ノ</note><note
+                              xml:id="note0100315" place="left" resp="#元暦校本" type="訓" rend="red"
+                              targetEnd="#note0100315e">ヲミノオホキミ</note>麻續<anchor type="noteEnd"
+                              xml:id="note0100313e"/>王流<anchor type="noteEnd" xml:id="note0100315e"/>
+                           於伊<choice>
+                              <orig>㔟</orig>
+                              <reg>勢</reg>
+                           </choice><note xml:id="note0100314" place="right" resp="#元暦校本" type="補読"
+                              rend="copper" targetEnd="#note0100314e">ノ</note><choice>
+                              <orig>國</orig>
+                              <reg>国</reg>
+                           </choice><anchor type="noteEnd" xml:id="note0100314e"/>伊良虞<choice><orig>嶋</orig><reg>島</reg></choice>之時人<milestone
+                              unit="br"/>哀傷作歌</p>
+                        <lg xml:id="manyo0023" type="短歌">
+                           <l xml:id="manyo0023_01"><lb/><note xml:id="note0100316" place="left"
+                                 resp="#元暦校本" type="訓" targetEnd="#note0100316e">ウツアサヲ</note><note
+                                 xml:id="note0100319" place="left" resp="#元暦校本" type="訓" rend="red"
+                                 targetEnd="#note0100319e">ウテルオヽヲミノオホキミアマナ<note xml:id="note0100317"
+                                    place="right" resp="#元暦校本" type="訓" rend="copper"
+                                    targetEnd="#note0100317e">レ</note>ル<anchor type="noteEnd"
+                                    xml:id="note0100317e"/>ヤイ<note xml:id="note0100318"
+                                    place="right" resp="#元暦校本" type="訓" rend="copper"
+                                    targetEnd="#note0100318e">ラ</note>ラ<anchor type="noteEnd"
+                                    xml:id="note0100318e"/>コカシマノタマモカリマス</note>打麻乎<anchor
+                                 type="noteEnd" xml:id="note0100316e"/>麻續王白水郎有哉射等籠荷四間</l>
+                           <l xml:id="manyo0023_02"><lb/>乃珠藻苅麻須<anchor type="noteEnd"
+                                 xml:id="note0100319e"/></l>
+                        </lg>
+                     </div>
+                  </div>
+                  <pb facs="#二〇丁裏"/>
+                  <div corresp="#麻続王">
+                     <div xml:id="旧国歌大観番号00024" n="24" type="旧国歌大観番号">
+                        <p style="text-indent:3em" n="題詞00024" xml:id="題詞00024">麻續王聞之感傷和歌</p>
+                        <lg xml:id="manyo0024" type="短歌">
+                           <l xml:id="manyo0024_01"><lb/>空蝉之命乎惜美浪尓所湿伊良虞能<choice><orig>嶋</orig><reg>島</reg></choice></l>
+                           <l xml:id="manyo0024_02"><lb/>之玉藻苅食</l>
+                           <l xml:id="kunmanyo0024_01" corresp="#manyo0024_01"><lb/>
+                              うつせみのいのちをゝしみなみにひち</l>
+                           <l xml:id="kunmanyo0024_02" corresp="#manyo0024_02"><lb/>いらこ<note
+                                 xml:id="note0100320" place="right" resp="#元暦校本" type="異訓"
+                                 rend="red" targetEnd="#note0100320e">カ</note>の<anchor
+                                 type="noteEnd" xml:id="note0100320e"/>しまにたまもかり<note
+                                 xml:id="note0100321" place="right" resp="#元暦校本" type="異訓"
+                                 rend="copper" targetEnd="#note0100321e">ハム</note>しく<anchor
+                                 type="noteEnd" xml:id="note0100321e"/></l>
+                        </lg>
+                        <p style="text-indent:4em">右案日本紀曰天皇四年乙亥夏四月<add xml:id="note0100322"
+                              place="right" resp="#元暦校本" type="補入">◯戊戌</add>
+                           <pb facs="#二一丁表"/>
+                           <milestone unit="br"/>朔<del xml:id="note0100323" resp="#元暦校本" type="ミセケチ"
+                              rend="red">戊</del>卯三位<note xml:id="note0100324" place="right"
+                              resp="#元暦校本" type="訓" rend="copper" targetEnd="#note0100324e"
+                              >ヲウミ</note>
+                           麻續<anchor type="noteEnd"
+                              xml:id="note0100324e"/>王有罪流于<note xml:id="note0100325" place="right"
+                              resp="#元暦校本" type="訓" rend="copper" targetEnd="#note0100325e"
+                              >イナハ</note>因幡<anchor type="noteEnd" xml:id="note0100325e"/><milestone
+                              unit="br"/>一子流<note xml:id="note0100326" place="right" resp="#元暦校本"
+                              type="訓" rend="copper" targetEnd="#note0100326e">イツノ</note>伊豆<anchor
+                              type="noteEnd" xml:id="note0100326e"/><choice><orig>嶋</orig><reg>島</reg></choice>一子流<note xml:id="note0100327"
+                              place="right" resp="#元暦校本" type="訓" rend="copper"
+                              targetEnd="#note0100327e">チ</note>
+                           血<anchor type="noteEnd"
+                              xml:id="note0100327e"/><note xml:id="note0100328" place="right"
+                              resp="#元暦校本" type="訓" rend="copper" targetEnd="#note0100328e"
+                              >カノ</note>鹿<anchor type="noteEnd" xml:id="note0100328e"/><choice><orig>嶋</orig><reg>島</reg></choice>也是<milestone
+                              unit="br"/><note xml:id="note0100329" place="right" resp="#元暦校本"
+                              type="異文" rend="red" targetEnd="#note0100329e">三</note>云<anchor
+                              type="noteEnd" xml:id="note0100329e"/>配于伊<choice>
+                              <orig>㔟</orig>
+                              <reg>勢</reg>
+                           </choice><choice>
+                              <orig>國</orig>
+                              <reg>国</reg>
+                           </choice>伊良虞<choice><orig>嶋</orig><reg>島</reg></choice>者若疑<milestone unit="br"/><note xml:id="note0100330"
+                              place="right" resp="#元暦校本" type="補読" rend="copper"
+                              targetEnd="#note0100330e">ノ</note>後<anchor type="noteEnd"
+                              xml:id="note0100330e"/>人<note xml:id="note0100331" place="right"
+                              resp="#元暦校本" type="訓" rend="copper" targetEnd="#note0100331e"
+                              >ヨ</note>縁<anchor type="noteEnd" xml:id="note0100331e"/><note
+                              xml:id="note0100332" place="right" resp="#元暦校本" type="補読"
+                              rend="copper" targetEnd="#note0100332e">ノ</note>
+                           歌<anchor type="noteEnd"
+                              xml:id="note0100332e"/>辞而誤<note xml:id="note0100333" place="right"
+                              resp="#元暦校本" type="補読" rend="copper" targetEnd="#note0100333e"
+                              >セル</note>記<anchor type="noteEnd" xml:id="note0100333e"/>乎</p>
+                     </div>
+                  </div>
+                  <div corresp="#天武天皇">
+                     <div xml:id="旧国歌大観番号00025" n="25" type="旧国歌大観番号">
+                        <p style="text-indent:3em" n="題詞00025" xml:id="題詞00025">天皇御製歌</p>
+                        <ab xml:id="manyo0025" type="長歌">
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">三吉野之耳我嶺<choice><orig>尒</orig><reg>尓</reg></choice>時無曽雪者落家<choice><orig>畄</orig><reg>留</reg></choice>間</seg>
+                              <lb/>
+                              <seg xml:id="note0100334" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">ミヨシノヽミヽカノミネニトキナクソユキハフリケルヒマ</seg>
+                           </seg>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">無曽雨者零計類其雪乃時無如其雨乃間無</seg>
+                              <lb/>
+                              <seg xml:id="note0100335" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">ナクソアメハフリケルソノユキノトキナキカコトソノアメノヒマナキ</seg>
+                           </seg>
+                           <pb facs="#二一丁裏"/>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">如隈毛不落念乍叙<del xml:id="note0100337" resp="#元暦校本"
+                                    type="ミセケチ" rend="red">来</del>其山道乎</seg>
+                              <lb/>
+                              <seg xml:id="note0100336" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">コトクマモヲチスヲモヒツヽソコシソノヤマミチヲ</seg>
+                           </seg>
+                        </ab>
+                     </div>
+                  
+                     <div xml:id="旧国歌大観番号00026" n="26" type="旧国歌大観番号">
+                        <p style="text-indent:3em" n="題詞00026" xml:id="題詞00026">或本歌</p>
+                        <ab xml:id="manyo0026" type="長歌">
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">三芳野之耳我山<choice><orig>尒</orig><reg>尓</reg></choice>時自久曽雪者落等言無</seg>
+                              <lb/>
+                              <seg xml:id="note0100338" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">ミヨシノヽミヽカノヤマニトキナクソユキハヲツトイフヒマ</seg>
+                           </seg>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">間曽雨者落等言其雪不時如其雨無間如隈</seg>
+                              <lb/>
+                              <seg xml:id="note0100339" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">ナクソアメハフルトイフソノユキノトキナラヌコトソノアメノヒマナキカコトクマ</seg>
+                           </seg>
+                           <lb/>
+                           <seg type="ruby">
+                              <seg type="rb">毛不堕思乍叙来其山道乎</seg>
+                              <lb/>
+                              <seg xml:id="note0100340" rend="right" rendition="#cc" resp="#元暦校本"
+                                 type="rt">モヲチスヲモヒツヽソコシソノヤマミチヲ</seg>
+                           </seg>
+                        </ab>
+                        <pb facs="#二二丁表"/>
+                        <p style="text-indent:4em">右句々相<note xml:id="note0100341" place="right"
+                              resp="#元暦校本" type="訓" rend="copper" targetEnd="#note0100341e"
+                              >カハレリ</note>
+                           換<anchor type="noteEnd"
+                              xml:id="note0100341e"/>因此重載<note xml:id="note0100342" place="right"
+                              resp="#元暦校本" type="異文" rend="red" targetEnd="#note0100342e"
+                              >焉</note>焉<anchor type="noteEnd" xml:id="note0100342e"/></p>
+                     </div>
+                  
+                     <div xml:id="旧国歌大観番号00027" n="27" type="旧国歌大観番号">
+                        <p style="text-indent:3em" n="題詞00027" xml:id="題詞00027">天皇幸于吉野宮時御製歌</p>
+                        <lg xml:id="manyo0027" type="短歌">
+                           <l xml:id="manyo0027_01"><lb/><note xml:id="note0100347" place="left"
+                                 resp="#元暦校本" type="訓" rend="red" targetEnd="#note0100347e"
+                                    >ヨキヒトノ<note xml:id="note0100345" place="right" resp="#元暦校本"
+                                    type="注" rend="red" targetEnd="#note0100345e"
+                                       >一本ヨシトキトミテ<milestone unit="br"/>一本ヨシトヨクミテ<milestone unit="br"
+                                    />一本ヨシトキクミテ</note>
+                              ヨシトキクミテ<anchor type="noteEnd"
+                                    xml:id="note0100345e"/>ヨシトイヒシヨシノヨクミヨ<note xml:id="note0100346"
+                                    place="right" resp="#元暦校本" type="異訓" rend="red"
+                                    targetEnd="#note0100346e">キ</note>ヨ<anchor type="noteEnd"
+                                    xml:id="note0100346e"/>へヒトヨキミ</note>淑人乃良<note
+                                 xml:id="note0100343" place="right" resp="#元暦校本" type="異文"
+                                 rend="red" targetEnd="#note0100343e">跡</note>跡<anchor
+                                 type="noteEnd" xml:id="note0100343e"/>吉見而好常言師芳野吉見<note
+                                 xml:id="note0100344" place="right" resp="#元暦校本" type="異文"
+                                 rend="copper" targetEnd="#note0100344e">与歟</note>多<anchor
+                                 type="noteEnd" xml:id="note0100344e"/></l>
+                           <l xml:id="manyo0027_02"><lb/>良人四来三<anchor type="noteEnd"
+                                 xml:id="note0100347e"/></l>
+                        </lg>
+                        <pb facs="#二二丁裏"/>
+                        <p style="text-indent:4em">紀曰八年己卯五月庚辰朔甲申幸<note xml:id="note0100348"
+                              place="right" resp="#元暦校本" type="異文" rend="copper"
+                              targetEnd="#note0100348e"><choice><orig>无</orig><reg>無</reg></choice></note>于<anchor type="noteEnd"
+                              xml:id="note0100348e"/>吉<note xml:id="note0100349" place="right"
+                              resp="#元暦校本" type="補読" rend="copper" targetEnd="#note0100349e"
+                              >ノ</note>
+                           野<anchor type="noteEnd"
+                              xml:id="note0100349e"/>宮</p>
+                     </div>
+                  </div>
+                  <div corresp="#持統天皇">
+                     <div xml:id="旧国歌大観番号00028" n="28" type="旧国歌大観番号">
+                        <p style="text-indent:3em"><note xml:id="note0100350" place="right"
+                              resp="#元暦校本" type="注" rend="red" targetEnd="#note0100350e">持統ゝゝ</note>
+                           藤原宮<anchor type="noteEnd"
+                              xml:id="note0100350e"/>御宇天皇代<note xml:id="note0100352" resp="#万葉集"
+                              type="割書"><note xml:id="note0100351"
+                                 place="right" resp="#元暦校本" type="訓" rend="copper"
+                                 targetEnd="#note0100351e">タカマノハラヒロノヒメ</note><choice>
+                                 <orig>髙</orig>
+                                 <reg>高</reg>
+                              </choice>天原廣野姫<anchor type="noteEnd" xml:id="note0100351e"
+                                 />天皇元年丁亥十<milestone unit="br"/>
+                           一年譲位軽太子尊号曰太上天皇</note></p>
+                        <p style="text-indent:3em" n="題詞00028" xml:id="題詞00028">天皇御製歌</p>
+                        <lg xml:id="manyo0028" type="短歌">
+                           <l xml:id="manyo0028_01"><lb/>春過而夏<note xml:id="note0100353"
+                                 place="right" resp="#元暦校本" type="合点" targetEnd="#note0100353e"
+                                 >〽</note><note xml:id="note0100354" place="right" resp="#元暦校本"
+                                 type="異文" rend="red" targetEnd="#note0100354e">来</note>来<anchor
+                                 type="noteEnd" xml:id="note0100353e"/><anchor type="noteEnd"
+                                 xml:id="note0100354e"/>良之白妙能衣乾有天之香未山</l>
+                           <l xml:id="kunmanyo0028_01" corresp="#manyo0028_01"><lb/>はるすきてなつ<note
+                                 xml:id="note0100355" place="right" resp="#元暦校本" type="異訓"
+                                 rend="red" targetEnd="#note0100355e">カ</note>そ<anchor
+                                 type="noteEnd" xml:id="note0100355e"/><note xml:id="note0100356"
+                                 place="right" resp="#元暦校本" type="注" rend="red"
+                                 targetEnd="#note0100356e">或本キニケラシ</note>きぬらし<anchor type="noteEnd"
+                                 xml:id="note0100356e"/>ゝろたへのこ</l>
+                           <l xml:id="kunmanyo0028_02" corresp="#manyo0028_01"><lb/>ろも<note
+                                 xml:id="note0100358" place="right" resp="#元暦校本" type="注" rend="red"
+                                 targetEnd="#note0100358e">或本ホシタ<note xml:id="note0100357"
+                                    place="right" resp="#元暦校本" type="異訓" rend="copper"
+                                    targetEnd="#note0100357e">ル</note>リ<anchor type="noteEnd"
+                                    xml:id="note0100357e"/></note>かはかる<anchor type="noteEnd"
+                                 xml:id="note0100358e"/>あまのか<note xml:id="note0100359" place="right"
+                                 resp="#元暦校本" type="異訓" rend="red" targetEnd="#note0100359e"
+                                 >ク</note>こ<anchor type="noteEnd" xml:id="note0100359e"/>やま</l>
+                        </lg>
+                     </div>
+                  </div>
+                  <pb facs="#二三丁表"/>
+                  <pb facs="#二三丁裏"/>
+                  <pb facs="#裏表紙裏"/>
+                  <pb facs="#裏表紙01"/>
+                  <pb facs="#裏表紙02"/>
+               
+            </div>
+         
+      </body>
+      <back>
+         <listBibl>
+            <bibl xml:id="万葉集">万葉集</bibl>
+            <bibl xml:id="定家本">定家本</bibl>
+            <bibl xml:id="冷泉本">冷泉本</bibl>
+            <bibl xml:id="細井本">細井本</bibl>
+            <bibl xml:id="廣瀬本">廣瀬本</bibl>
+            <bibl xml:id="元暦校本">元暦校本</bibl>
+         </listBibl>
+         <listPerson>
+            <person xml:id="雄略天皇">
+               <name>雄略天皇</name>
+            </person>
+            <person xml:id="舒明天皇">
+               <name>舒明天皇</name>
+            </person>
+            <person xml:id="中皇命">
+               <name>中皇命</name>
+            </person>
+            <person xml:id="軍王">
+               <name>軍王</name>
+            </person>
+            <person xml:id="十市皇女">
+               <name>十市皇女</name>
+            </person>
+            <person xml:id="井戸王">
+               <name>井戸王</name>
+            </person>
+            <person xml:id="吹黄刀自">
+               <name>吹黄刀自</name>
+            </person>
+            <person xml:id="麻続王">
+               <name>麻続王</name>
+            </person>
+            <person xml:id="持統天皇">
+               <name>持統天皇</name>
+            </person>
+            <person xml:id="高市黒人">
+               <name>高市黒人</name>
+            </person>
+            <person xml:id="川島皇子">
+               <name>川島皇子</name>
+            </person>
+            <person xml:id="阿閇皇女">
+               <name>阿閇皇女</name>
+            </person>
+            <person xml:id="磐姫皇后">
+               <name>磐姫皇后</name>
+            </person>
+            <person xml:id="軽太郎女">
+               <name>軽太郎女</name>
+            </person>
+            <person xml:id="天智天皇">
+               <name>天智天皇</name>
+               <name>中大兄</name>
+            </person>
+            <person xml:id="鏡王女">
+               <name>鏡王女</name>
+            </person>
+            <person xml:id="内大臣藤原卿">
+               <name>内大臣藤原卿</name>
+            </person>
+            <person xml:id="久米禅師">
+               <name>久米禅師</name>
+            </person>
+            <person xml:id="石川郎女">
+               <name>石川郎女</name>
+            </person>
+            <person xml:id="大伴宿祢">
+               <name>大伴宿祢</name>
+            </person>
+            <person xml:id="巨勢郎女">
+               <name>巨勢郎女</name>
+            </person>
+            <person xml:id="天武天皇">
+               <name>天武天皇</name>
+            </person>
+            <person xml:id="藤原夫人">
+               <name>藤原夫人</name>
+            </person>
+            <person xml:id="大伯皇女">
+               <name>大伯皇女</name>
+            </person>
+            <person xml:id="大津皇子">
+               <name>大津皇子</name>
+            </person>
+            <person xml:id="日並皇子">
+               <name>草壁皇子</name>
+            </person>
+            <person xml:id="弓削皇子">
+               <name>弓削皇子</name>
+            </person>
+            <person xml:id="額田王">
+               <name>額田王</name>
+            </person>
+            <person xml:id="但馬皇女">
+               <name>但馬皇女</name>
+            </person>
+            <person xml:id="舎人皇子">
+               <name>舎人皇子</name>
+            </person>
+            <person xml:id="舎人娘子">
+               <name>舎人娘子</name>
+            </person>
+            <person xml:id="三方沙弥">
+               <name>三方沙弥</name>
+            </person>
+            <person xml:id="園臣生羽女">
+               <name>園臣生羽女</name>
+            </person>
+            <person xml:id="石川女郎">
+               <name>石川女郎</name>
+            </person>
+            <person xml:id="大伴宿祢田主">
+               <name>大伴宿祢田主</name>
+            </person>
+            <person xml:id="長皇子">
+               <name>長皇子</name>
+            </person>
+            <person xml:id="柿本人麻呂">
+               <name>柿本人麻呂</name>
+            </person>
+            <person xml:id="當麻真人麿妻">
+               <name>當麻真人麿妻</name>
+            </person>
+            <person xml:id="石上大臣">
+               <name>石上大臣</name>
+            </person>
+            <person xml:id="作者不明">
+               <name>作者不明</name>
+            </person>
+            <person xml:id="志貴皇">
+               <name>志貴皇</name>
+            </person>
+            <person xml:id="坂門人足">
+               <name>坂門人足</name>
+            </person>
+            <person xml:id="調首淡海">
+               <name>調首淡海</name>
+            </person>
+            <person xml:id="春日蔵首老">
+               <name>春日蔵首老</name>
+            </person>
+            <person xml:id="長忌寸奥麻呂">
+               <name>長忌寸奥麿</name>
+            </person>
+            <person xml:id="譽謝女王">
+               <name>譽謝女王</name>
+            </person>
+            <person xml:id="高安大嶋">
+               <name>高安大嶋</name>
+            </person>
+            <person xml:id="置始東人">
+               <name>置始東人</name>
+            </person>
+            <person xml:id="山上臣憶良">
+               <name>山上臣憶良</name>
+            </person>
+            <person xml:id="清江娘子">
+               <name>清江娘子</name>
+            </person>
+            <person xml:id="身人部王">
+               <name>身人部王</name>
+            </person>
+            <person xml:id="忍坂部乙麻呂">
+               <name>忍坂部乙麻呂</name>
+            </person>
+            <person xml:id="藤原宇合">
+               <name>藤原宇合</name>
+            </person>
+            <person xml:id="長屋王">
+               <name>長屋王</name>
+            </person>
+            <person xml:id="元明天皇">
+               <name>元明天皇</name>
+            </person>
+            <person xml:id="文武天皇">
+               <name>文武天皇</name>
+            </person>
+            <person xml:id="御名部皇女">
+               <name>御名部皇女</name>
+            </person>
+            <person xml:id="定家">
+               <name>藤原定家</name>
+            </person>
+            <person xml:id="人">
+               <name>人</name>
+            </person>
+         </listPerson>
+      </back>
+   </text>
+</TEI>
